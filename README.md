@@ -11,12 +11,13 @@ Note: all features will have appropriate seed data for demonstration purpose.
 - [ ] Search
 - [ ] Song player
 - [ ] Allow Users to Customize their Page
+
 Bonus:
 - [ ] Comments
 - [ ] Follows
 - [ ] Purchase/Download Songs
 
-- [ ] Production README [sample](docs/p_readme.md)
+- [ ] Production README [Goto](docs/p_readme.md)
 
 [wireframes]: docs/wireframes
 [components]: docs/component-hierarchy.md
