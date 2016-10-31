@@ -1,4 +1,5 @@
-```{
+```javascript
+{
   currentUser: {
     id: 1,
     username: "A E S T H E T I C M A S T E R O F"
