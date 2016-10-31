@@ -17,27 +17,26 @@
 
 * **NewAlbumContainer**
   * AlbumForm
+    * TrackForm
 
 * **AlbumContainer**
   * AlbumIndex
+  * TrackIndex
   * AlbumEdit
     * AlbumForm
-  * Player
-  * TrackIndex
+      * TrackForm
 
 * **ArtistContainer**
   * Profile
   * ProfilePic
   * Description
   * AlbumIndex
-
-* **ProfileContainer**
-  * EditUserForm
   * NewAlbumContainer
 
 * **AlbumForm**
   * TrackForm
 
+* **CurrentPlayerContainer**
 
 
 * ***BONUS***
@@ -49,7 +48,6 @@
 | "/sign-in" | "AuthFormContainer" |
 | "/home" | "HomeContainer" |
 | "/user/:userId" | "ArtistContainer" |
-| "/user/:userId/me" | "ProfileContainer" |
-| "/user/album/:albumId/" | "AlbumContainer" |
+| "/user/:userId/album/:albumId/" | "AlbumContainer" |
 | "/new-album" | "NewAlbumContainer" |
 | "/search" | "SearchResultsContainer" |
