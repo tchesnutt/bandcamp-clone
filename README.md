@@ -1,7 +1,8 @@
 # Sandcamp (name TBD)
 [Sandcamp][heroku]
 [heroku]: https://sandcamp.herokuapp.com/
-
+[Tello Link][trello]
+[trello]: https://trello.com/b/y7jMGdNE/sandcamp
 This project will be a faithful clone of Bandcamp built using Rails and React/Redux.
 
 ##Features:
@@ -18,6 +19,14 @@ Bonus:
 - [ ] Purchase/Download Songs
 
 - [ ] Production README [Goto](docs/p_readme.md)
+
+
+## Design Docs
+* [View Wireframes][wireframes]
+* [React Components][components]
+* [API endpoints][api-endpoints]
+* [DB schema][schema]
+* [Sample State][sample-state]
 
 [wireframes]: docs/wireframes
 [components]: docs/component-hierarchy.md
