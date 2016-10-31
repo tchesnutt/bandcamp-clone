@@ -44,7 +44,7 @@
 
 ## Routes
 |Path   | Component   |
-|-------|-------------|
+|-|-|
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
 | "/home" | "HomeContainer" |
