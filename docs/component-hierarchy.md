@@ -1,44 +1,42 @@
 ## Component Hierarchy
 
 * **AuthContainer**
-* AuthForm
+  * AuthForm
 
 * **HomeContainer**
-* NaveBar
-  * Search
-* ExporeMusic
-* NewAlbumContainer
+  * NaveBar
+    * Search
+  * ExporeMusic
+  * NewAlbumContainer
 
 * **SearchResultsContainer**
-* Search
-* TrackIndex
-* AlbumIndex
-* UserIndex
+  * Search
+  * TrackIndex
+  * AlbumIndex
+  * UserIndex
 
 * **NewAlbumContainer**
-* AlbumForm
+  * AlbumForm
 
 * **AlbumContainer**
-* AlbumIndex
-* AlbumEdit
-  * AlbumForm
-* Player
-* TrackIndex
+  * AlbumIndex
+  * AlbumEdit
+    * AlbumForm
+  * Player
+  * TrackIndex
 
 * **ArtistContainer**
-* Profile
-* ProfilePic
-* Description
-* AlbumIndex
+  * Profile
+  * ProfilePic
+  * Description
+  * AlbumIndex
 
 * **ProfileContainer**
-* EditUserForm
-  - Capactity to add ProfilePic and Description
-- Only Users logged in may see there own Profile Page.
-* NewAlbumContainer
+  * EditUserForm
+  * NewAlbumContainer
 
 * **AlbumForm**
-* TrackFrom
+  * TrackForm
 
 
 
