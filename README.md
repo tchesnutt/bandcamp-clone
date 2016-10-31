@@ -1,6 +1,6 @@
-# BandcampClone (name TBD)
-[BandcampClone][heroku]
-[heroku]: https://bandcampclone.herokuapp.com/
+# Sandcamp (name TBD)
+[Sandcamp][heroku]
+[heroku]: https://sandcamp.herokuapp.com/
 
 This project will be a faithful clone of Bandcamp built using Rails and React/Redux.
 
