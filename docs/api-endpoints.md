@@ -4,6 +4,8 @@
 - `GET /` - loads React web app
 
 ## JSON API
+### Search
+- `GET /api/search`
 ### Users
 - `POST /api/users`
 - `PATCH /api/users`
@@ -18,7 +20,7 @@
 - `GET /api/track/:id`
 - `PATCH /api/track/:id`
 - `DELETE /api/track/:id`
-### Notebooks
+### Albums
 - `GET /api/album`
 - `POST /api/album`
 - `GET /api/album/:id`
