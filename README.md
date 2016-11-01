@@ -18,6 +18,7 @@ Bonus:
 - [ ] Follows
 - [ ] Purchase/Download Songs
 
+
 - [ ] Production README [Goto](docs/p_readme.md)
 
 
@@ -49,7 +50,7 @@ Bonus:
 **Objective:** Songs can play played and paused from the album page. Integrate into search results.
 
 ### Phase 5: Allow Users to customize their pages (1 days)
-**objective:** Users can change the header and background of their artist page.
+**Objective:** Users can change the header and background of their artist page.
 
 ### Phase 6: Styling! (2 days)
-**objective:** No pixel shall be out of place!
+**Objective:** No pixel shall be out of place!
