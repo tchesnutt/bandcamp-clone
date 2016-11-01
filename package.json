@@ -1,36 +1,35 @@
-
 {
   "name": "BandcampClone",
   "version": "1.0.0",
-  "description": "A clone of bandcamp so someone will hire me.",
+  "description": "[Sandcamp][heroku] [heroku]: https://sandcamp.herokuapp.com/ [Tello Link][trello] [trello]: https://trello.com/b/y7jMGdNE/sandcamp This project will be a faithful clone of Bandcamp built using Rails and React/Redux.",
   "main": "index.js",
   "directories": {
+    "doc": "docs",
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tchesnutt/sandcamp.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tchesnutt/sandcamp/issues"
+  },
+  "homepage": "https://github.com/tchesnutt/sandcamp#readme",
   "dependencies": {
-    "babel-core": "^6.11.4",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.11.1",
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1",
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
-    "react-router": "^2.6.0",
-    "redux": "^3.5.2",
-    "webpack": "^1.13.1"
-  },
-  "engines": {
-    "node": "6.0.0",
-    "npm": "3.10.3"
-  },
-
-  "scripts": {
-    "postinstall": "./node_modules/.bin/webpack"
+    "redux": "^3.6.0",
+    "webpack": "^1.13.3"
   }
 }
