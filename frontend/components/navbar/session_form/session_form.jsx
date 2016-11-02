@@ -65,14 +65,17 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let text, link, linkText, linkDesc, guestLogin;
+    let buttonName, link, linkText, linkDesc, guestLogin;
     if (this.props.formType === "login") {
-      text = "Log In";
+      buttonName = "Log In";
       link = '/signup';
       linkDesc = "Want an account kiddo?"
       linkText = 'Sign Up';
+      guestLogin = (
+        <FlatButton label='Guest Login' secondary={true} onClick={this.handleGuestLogin}/>
+      )
     } else {
-      text = 'Sign up';
+      buttonName = 'Sign up';
       link = '/login';
       linkDesc = 'Have an acount?';
       linkText = 'Log In;'
@@ -83,29 +86,36 @@ class SessionForm extends React.Component {
     return (
       <div className='session-form'>
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <Dialog open={this.state.open} onRequestClose={this.handleOpen}>
-            <div className="login-form-container">
-            <form onSubmit={this.handleSubmit} className="login-form-box">
-              <div className="login-form">
-                  <TextField type="text"
-                    hintText = "Username"
-                    floatingLabelText="Username"
-                    value={this.state.username}
-                    onChange={this.update("username")}
-                    className="login-input" />
-                  <TextField type="password"
-                    hintText = "Username"
-                    floatingLabelText="Username"
-                    value={this.state.password}
-                    onChange={this.update("password")}
-                    className="login-input" />
-                  <br/>
-                  <FlatButton label={text} type="submit" style={buttonStyle} />
-                  <br/>
-                  {guestLogin}
-              </div>
-            </form>
+        <Dialog open={open} onRequestClose={this.handleOpen}>
+          <div className="login-form-container">
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            <div className="login-form">
+                <TextField type="text"
+                  hintText = "Username"
+                  floatingLabelText="Username"
+                  value={this.state.username}
+                  onChange={this.update("username")}
+                  className="login-input"
+                  fullWidth={true}
+                  errorText={this.props.errors.username === undefined ? "" : `username ${this.props.errors.username.join(", ")}`}
+                  />
+                <br/>
+                <TextField type="password"
+                  hintText = "Password"
+                  floatingLabelText="Password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  className="login-input"
+                  fullWidth={true}
+                  errorText={this.props.errors.password === undefined ? "" : `password ${this.props.errors.password.join(", ")}`}
+                  />
+                <br/>
+                <FlatButton label={buttonName} type="submit" style={buttonStyle} />
+                <br/>
             </div>
+          </form>
+          </div>
+          {guestLogin}
           <Link to={link}>{linkText}</Link>
         </Dialog>
       </MuiThemeProvider>
