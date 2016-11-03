@@ -18,7 +18,6 @@ const NavBar = ({currentUser, logout, handleOpen}) => {
           title="Sandcamp"
           titleStyle={{fontFamily: 'Titillium Web'}}
           showMenuIconButton={false}
-          onTitleTouchTap={}
           >
           <SessionButtonContainer />
         </AppBar>
