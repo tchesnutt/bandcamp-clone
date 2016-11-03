@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/sandcamp.jsx",
   output: {
-    path: "./app/assets/javascripts",
+    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
   plugins:[
@@ -22,11 +22,11 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
-          presets: ['react', 'es2015']
+          presets: ['es2015', 'react']
         }
       }
     ]
