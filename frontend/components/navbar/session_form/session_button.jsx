@@ -32,9 +32,7 @@ class SessionButton extends React.Component {
         <div className="session">
           <Link to={'/login'}>
             <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-              <RaisedButton
-                label="login"
-                />
+              <RaisedButton label="login"/>
             </MuiThemeProvider>
           </Link>
         </div>

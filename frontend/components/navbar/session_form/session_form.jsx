@@ -79,7 +79,7 @@ class SessionForm extends React.Component {
       buttonName = 'Sign up';
       link = '/login';
       linkDesc = 'Have an acount?';
-      linkText = 'Log In;'
+      linkText = 'Log In'
       guestLogin = (
         <FlatButton label='Guest Login' secondary={true} onClick={this.handleGuestLogin}/>
       )
@@ -116,8 +116,12 @@ class SessionForm extends React.Component {
             </div>
           </form>
           </div>
-          {guestLogin}
-          <Link to={link}>{linkText}</Link>
+          <div className="bottom-row-login-form">
+            {guestLogin}
+            <Link to={link}>
+              <FlatButton label={linkText}/>
+            </Link>
+          </div>
         </Dialog>
       </MuiThemeProvider>
       </div>

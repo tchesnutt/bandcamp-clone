@@ -2,6 +2,7 @@ import { receiveCurrentUser, receiveErrors }
   from '../actions/session_actions';
 
 export const login = (user, success, error) => {
+  console.log(error);
 	$.ajax({
 		method: 'POST',
 		url: '/api/session',
