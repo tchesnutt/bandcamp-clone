@@ -1,0 +1,13 @@
+@import 'modules/colors';
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background: $secondaryColor;
+}
+
+.session {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -3,10 +3,10 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      login!(user)
+      login!(@user)
       render "api/users/show"
     else
-      render json: @users.errors.messages, status: 422
+      render json: @users.errors.messages, status: 400
     end
   end
 

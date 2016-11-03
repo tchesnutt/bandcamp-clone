@@ -9,11 +9,16 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render "api/users/show"
     else
-      render json: ["Invalid username or password"], status: 401
+      render json: {password: ["Invalid username or password"]}, status: 401
     end
   end
 
   def destroy
-
+    if current_user
+      logout!
+      render json: {}
+    else
+      render json: {}, status: 404
+    end
   end
 end

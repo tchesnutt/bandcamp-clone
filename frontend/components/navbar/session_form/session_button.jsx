@@ -4,7 +4,7 @@ import { Dialog,
          FlatButton,
          RaisedButton,
          TextField } from 'material-ui';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -19,7 +19,7 @@ class SessionButton extends React.Component {
     if(this.props.session.currentUser){
       return (
         <div className="session">
-          <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+          <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <RaisedButton
               label="logout"
               onClick={this.props.logout}
@@ -31,7 +31,7 @@ class SessionButton extends React.Component {
       return (
         <div className="session">
           <Link to={'/login'}>
-            <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+            <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
               <RaisedButton
                 label="login"
                 />

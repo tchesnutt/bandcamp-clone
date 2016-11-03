@@ -4,7 +4,7 @@ import { Dialog,
          FlatButton,
          RaisedButton,
          TextField } from 'material-ui';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -23,6 +23,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   handleOpen() {
@@ -85,8 +86,8 @@ class SessionForm extends React.Component {
     }
     return (
       <div className='session-form'>
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <Dialog open={open} onRequestClose={this.handleOpen}>
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <Dialog open={true} onRequestClose={this.handleOpen}>
           <div className="login-form-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <div className="login-form">
