@@ -9,12 +9,10 @@ import { login, signup, logout } from '../util/session_api_util';
 const SessionMiddleware = ({ dispatch }) => next => action => {
   const successCallback = user => dispatch(receiveCurrentUser(user));
   const errorCallback = error => {
-    console.log(error);
     dispatch(receiveErrors(error.responseJSON))
   };
   switch(action.type) {
     case LOGIN:
-      console.log("im here");
       login(action.user, successCallback, errorCallback);
       return next(action);
     case LOGOUT:
