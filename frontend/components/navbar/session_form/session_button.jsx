@@ -30,11 +30,11 @@ class SessionButton extends React.Component {
     } else {
       return (
         <div className="session">
-          <Link to={'/login'}>
             <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-              <RaisedButton label="login"/>
+              <RaisedButton label="login"
+                onClick={this.props.openAuthModal}>
+              </RaisedButton>
             </MuiThemeProvider>
-          </Link>
         </div>
       );
     }

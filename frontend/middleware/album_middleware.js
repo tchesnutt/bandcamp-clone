@@ -16,9 +16,7 @@ import {
     createAlbum,
     updateAlbum
 } from '../util/album_api_util';
-import {
-    merge
-} from 'lodash';
+import { merge } from 'lodash';
 
 const AlbumMiddleware = ({
     dispatch

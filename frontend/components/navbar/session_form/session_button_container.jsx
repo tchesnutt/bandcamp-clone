@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { login, logout, signup } from '../../../actions/session_actions';
 import SessionButton from './session_button';
+import { closeAuthModal, openAuthModal } from '../../../actions/modal_actions'
 
 const mapStateToProps = state => ({
   session: state.session
@@ -9,7 +10,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   signup: user => dispatch(signup(user)),
   login:  user => dispatch(login()),
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  openAuthModal: () => dispatch(openAuthModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionButton);

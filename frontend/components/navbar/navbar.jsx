@@ -5,7 +5,7 @@ import { AppBar, FlatButton, RaisedButton } from 'material-ui';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-// TODO: make clicking name to go userpage
+import SessionFormContainer from './session_form/session_form_container';
 
 class NavBar extends React.Component {
   constructor(props){
@@ -26,6 +26,7 @@ class NavBar extends React.Component {
                 <RaisedButton label={this.props.currentUser.username} />
               </div>
               <SessionButtonContainer />
+              <SessionFormContainer />
             </AppBar>
           </MuiThemeProvider>
         </div>

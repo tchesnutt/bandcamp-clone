@@ -16,31 +16,21 @@ class SessionForm extends React.Component {
         this.state = {
             username: "",
             password: "",
-            open: false
+            formType: 'login'
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleOpen = this.handleOpen.bind(this);
-        this.handleClose = this.handleClose.bind(this);
+        this.handleToggleFormType = this.handleToggleFormType.bind(this);
         this.handleGuestLogin = this.handleGuestLogin.bind(this);
     }
 
-    handleOpen() {
-        this.setState({open: true});
+    handleToggleFormType(e) {
+        e.preventDefault();
+        this.setState({
+            formType: this.state.formType === 'login'
+                ? 'signup'
+                : 'login'
+        });
     };
-
-    handleClose() {
-        this.setState({open: false});
-    };
-
-    componentDidUpdate() {
-        this.redirectIfLoggedIn();
-    }
-
-    redirectIfLoggedIn() {
-        if (this.props.loggedIn) {
-            this.props.router.push("/");
-        }
-    }
 
     update(field) {
         return e => this.setState({[field]: e.currentTarget.value});
@@ -49,7 +39,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = this.state;
-        this.props.processForm({user});
+        this.state.formType === 'login' ? this.props.login({user}) : this.props.signup({user});
     }
 
     handleGuestLogin(e) {
@@ -63,27 +53,25 @@ class SessionForm extends React.Component {
 
     render() {
         let buttonName,
-            link,
             linkText,
             linkDesc,
             guestLogin;
         if (this.props.formType === "login") {
             buttonName = "Log In";
-            link = '/signup';
             linkDesc = "Want an account kiddo?"
             linkText = 'Sign Up';
             guestLogin = (<FlatButton label='Guest Login' secondary={true} onClick={this.handleGuestLogin}/>)
         } else {
             buttonName = 'Sign up';
-            link = '/login';
             linkDesc = 'Have an acount?';
             linkText = 'Log In'
-            guestLogin = (<FlatButton label='Guest Login' secondary={true} onClick={this.handleGuestLogin}/>)
+            guestLogin = (<FlatButton label='Guest Login' secondary={true} onTouchTap={this.handleGuestLogin}/>)
         }
+        console.log(this.props)
         return (
             <div className='session-form'>
                 <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-                    <Dialog open={true} onRequestClose={this.handleOpen}>
+                    <Dialog open={this.props.authModalOpen} onRequestClose={this.props.closeAuthModal} modal={false}>
                         <div className="login-form-container">
                             <form onSubmit={this.handleSubmit} className="login-form-box">
                                 <div className="login-form">
@@ -93,18 +81,16 @@ class SessionForm extends React.Component {
                                     <br/>
                                     <TextField type="password" hintText="Password" floatingLabelText="Password" value={this.state.password} onChange={this.update("password")} className="login-input" fullWidth={true} errorText={this.props.errors.password === undefined
                                         ? ""
-                                        : `password ${this.props.errors.password.join(", ")}`}/>
+                                        : this.props.errors.password.join(", ")}/>
                                     <br/>
-                                    <FlatButton label={buttonName} type="submit" style={buttonStyle}/>
+                                    <FlatButton label={buttonName} type="submit" style={buttonStyle} primary={true}/>
                                     <br/>
                                 </div>
                             </form>
                         </div>
                         <div className="bottom-row-login-form">
                             {guestLogin}
-                            <Link to={link}>
-                                <FlatButton label={linkText}/>
-                            </Link>
+                            <FlatButton label={linkText} secondary={true} onTouchTap={this.handleToggleFormType}/>
                         </div>
                     </Dialog>
                 </MuiThemeProvider>
