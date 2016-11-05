@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBarContainer from './navbar/navbar_container';
 import SessionFormContainer from './navbar/session_form/session_form_container';
+import { Router, Route, Link, browserHistory } from 'react-router'
+
 
 
 class App extends React.Component {
@@ -10,8 +12,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBarContainer/>
-        <SessionFormContainer/>
+        <div>
+          <NavBarContainer/>
+          <SessionFormContainer/>
+        </div>
         {this.props.children}
       </div>
     );

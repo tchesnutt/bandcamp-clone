@@ -6,9 +6,9 @@ export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
 
-export const fetchTracks = user_id => ( {
+export const fetchTracks = album_id => ( {
   type: FETCH_TRACKS,
-  user_id
+  album_id
 } );
 
 export const fetchTrack = track_id => ( {

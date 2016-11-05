@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
     validates :username, :password_digest, :session_token, presence: true
     validates :username, uniqueness: true
     validates :username, length: { minimum: 3 }
-    validates :password, length: { minimum: 6, allow_nil: true }
+    validates :password, length: { minimum: 6 }, allow_nil: :true
 
     has_many :albums,
              primary_key: :id,
@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 
     def password=(password)
         self.password_digest = BCrypt::Password.create(password)
+        @password = password
     end
 
     def is_password?(password)

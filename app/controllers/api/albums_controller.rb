@@ -2,10 +2,29 @@ class Api::AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
+    @album.artist_id = current_user.id
     if @album.save
       render 'api/albums/show'
     else
-      render json: @album.errors.messages
+      render json: @album.errors.messages, status: 422
+    end
+  end
+
+  def index
+    @albums = Album.where(user_id: params[:artist_id])
+    if @albums.count > 0
+      render 'api/albums/show'
+    else
+      render json: ["Artist has no albums"], status: 404
+    end
+  end
+
+  def show
+    @album = Album.find(params[:id])
+    if @album
+      render 'api/albums/show'
+    else
+      render json: ["No album found"], status: 404
     end
   end
 

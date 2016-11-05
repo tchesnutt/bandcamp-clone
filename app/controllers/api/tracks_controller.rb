@@ -2,10 +2,11 @@ class Api::TracksController < ApplicationController
 
   def create
     @track = Track.new(track_params)
+    @track.album_id = params[:album_id]
     if @track.save
       render 'api/tracks/show'
     else
-      render json: @track.errors.messages
+      render json: @track.errors.messages, status:422
     end
   end
 

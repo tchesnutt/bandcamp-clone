@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
             linkText,
             linkDesc,
             guestLogin;
-        if (this.props.formType === "login") {
+        if (this.state.formType === "login") {
             buttonName = "Log In";
             linkDesc = "Want an account kiddo?"
             linkText = 'Sign Up';
@@ -67,7 +67,6 @@ class SessionForm extends React.Component {
             linkText = 'Log In'
             guestLogin = (<FlatButton label='Guest Login' secondary={true} onTouchTap={this.handleGuestLogin}/>)
         }
-        console.log(this.props)
         return (
             <div className='session-form'>
                 <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
