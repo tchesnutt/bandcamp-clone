@@ -172,7 +172,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.1.0)
   figaro
-  jbuilder (~> 2.0)
+  jbuilder
   jquery-rails
   newrelic_rpm
   pg (~> 0.15)

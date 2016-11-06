@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app'
 import UserContainer from './artist_page/user_container';
 import { fetchUser } from '../actions/user_actions';
+import { fetchAlbums } from '../actions/album_actions';
 import {
   blue500, blue700,
   pinkA200,
@@ -40,6 +41,7 @@ const Root = ({ store }) => {
 
   const requestUserOnEnter = nextState => {
 		store.dispatch(fetchUser(nextState.params.id));
+		store.dispatch(fetchAlbums(nextState.params.id));
 	};
 
   return (

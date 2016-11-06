@@ -13,7 +13,7 @@ class Api::AlbumsController < ApplicationController
   def index
     @albums = Album.where(user_id: params[:artist_id])
     if @albums.count > 0
-      render 'api/albums/show'
+      render 'api/albums/index'
     else
       render json: ["Artist has no albums"], status: 404
     end

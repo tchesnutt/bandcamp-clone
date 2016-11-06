@@ -47,7 +47,7 @@ export const receiveAllAlbums = albums => ( {
   albums
 } );
 
-export const receiveAlbumsErrors = error => ( {
+export const receiveAlbumErrors = error => ( {
   type: RECEIVE_ALBUM_ERRORS,
   error
 } );
