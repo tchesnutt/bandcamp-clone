@@ -1,8 +1,11 @@
 .user-sidebar {
   width: 20%;
-  border: 1px solid black;
 }
 
 .user-profile-picture {
   padding: 10px;
+}
+
+.album-title-card:hover {
+  text-decoration: underline;
 }

@@ -1,46 +1,29 @@
 import React from 'react';
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 import { withRouter } from 'react-router';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { Link } from 'react-router';
+import { hashHistory } from 'react-router';
 
 
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  gridList: {
-    overflowY: 'auto',
-  }
-};
 
-const Album = ({albums}) => {
+const Album = ({id, userId, title, coverUrl, createdAt}) => {
+  let createDate;
+  createDate = createdAt.split('-');
+
+  const handleClick = url => () => hashHistory.push(url);
+
   return (
-    <div className="albums-in-grid" style={styles.root}>
+    <div className="album-card">
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <GridList
-          cols={2}
-          cellHeight={200}
-          padding={1}
-          style={styles.gridList} >
-          {albums.map((tile) => (
-            <GridTile
-              key={tile.id}
-              title={tile.title}
-              subtitle={<span>by <b>{tile.created_at}</b></span>}
-              actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-              actionPosition="right"
-              titlePosition="bottom"
-              titleBackground="linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)" >
-                <img src={tile.cover_url} />
-            </GridTile>
-          ))}
-        </GridList>
+        <Card>
+          <CardMedia>
+            <img src={coverUrl} width={'400px'}/>
+          </CardMedia>
+          <CardTitle title={`${title},   ${createDate[0]}`} className="album-title-card" onTouchTap={handleClick(`/users/${userId}/albums/${id}`)}/>
+        </Card>
       </MuiThemeProvider>
     </div>
   )

@@ -1,8 +1,14 @@
 .user-discography {
   width: 80%;
+  padding: 10px;
+  margin: 5px;
 }
 
 .user-page {
   display: flex;
-  justify-content: flex-start;
+  justify-content:space-between;
+}
+
+.album-card {
+  width: 400px;
 }

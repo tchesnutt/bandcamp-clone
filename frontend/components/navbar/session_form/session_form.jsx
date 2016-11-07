@@ -70,7 +70,7 @@ class SessionForm extends React.Component {
         return (
             <div className='session-form'>
                 <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-                    <Dialog open={this.props.authModalOpen} onRequestClose={this.props.closeAuthModal} modal={false}>
+                    <Dialog open={this.props.authModalOpen} onRequestClose={this.props.closeAuthModal} modal={false} title={buttonName}>
                         <div className="login-form-container">
                             <form onSubmit={this.handleSubmit} className="login-form-box">
                                 <div className="login-form">
@@ -82,7 +82,7 @@ class SessionForm extends React.Component {
                                         ? ""
                                         : this.props.errors.password.join(", ")}/>
                                     <br/>
-                                    <FlatButton label={buttonName} type="submit" style={buttonStyle} primary={true}/>
+                                    <FlatButton label="Submit" type="submit" style={buttonStyle} primary={true}/>
                                     <br/>
                                 </div>
                             </form>
