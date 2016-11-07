@@ -22,10 +22,6 @@ class UserDetail extends React.Component {
     artistId = 1;
   };
 
-  componentDidMount() {
-    console.log(this.props.viewedUsers);
-  };
-
   handlealbums() {
     if (this.albums.length > 0) {
       return(
@@ -33,7 +29,7 @@ class UserDetail extends React.Component {
           <li key={idx}>
             <Album
             id={album.id}
-            userId={1}
+            userId={album.user_id}
             title={album.title}
             coverUrl={album.cover_url}
             createdAt={album.created_at}

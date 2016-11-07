@@ -8,6 +8,7 @@ import { merge } from 'lodash';
 
 const _nullAlbums = {
   albums: {},
+  addAlbum: {},
   errors: []
 };
 

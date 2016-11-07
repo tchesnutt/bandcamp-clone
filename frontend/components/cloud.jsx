@@ -1,35 +1,22 @@
-var React = require('react'),
-    ReactDOM = require('react-dom'),
-    UploadButton = require("./cloudinary/UploadButton"),
+import React from 'react';
+import { RaisedButton } from 'material-ui';
 
-var Images = React.createClass({
-  getInitialState: function () {
-    return { images: [] };
-  },
-  componentDidMount: function () {
-    $.get("/api/images", function (images) {
-      this.setState({images: images});
-    }.bind(this))
-  },
-  postImage: function (image) {
-    var data = {image: {url: image.url}};
-    $.post("/api/images", data, function (savedImage) {
-      var images = this.state.images;
-      images.push(savedImage);
-      this.setState({ images: images });
+class UploadButton extends React.Component {
+  upload(e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(window.CLOUDINARY_OPTIONS, function(error, result){
+      if(!error){
+        this.props.postImage(results[0]);
+      }
     }.bind(this));
-  },
-  render: function () {
-    return (
-      <div>
-        <UploadButton postImage={this.postImage}/>
-      </div>
-    );
   }
-});
-document.addEventListener( 'DOMContentLoaded', function () {
-  ReactDOM.render(
-    <Images/>,
-    document.getElementById('root')
-  );
-}, false );
+  render() {
+    return (
+      <div className="upload-form">
+        <RaisedButton label='Upload!' onTouchTap={this.upload}/>
+      </div>
+    )
+  }
+}
+
+export default UploadButton;

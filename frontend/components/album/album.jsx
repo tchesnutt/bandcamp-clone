@@ -4,7 +4,6 @@ import { withRouter } from 'react-router';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { Link } from 'react-router';
 import { hashHistory } from 'react-router';
 
 
@@ -22,7 +21,7 @@ const Album = ({id, userId, title, coverUrl, createdAt}) => {
           <CardMedia>
             <img src={coverUrl} width={'400px'}/>
           </CardMedia>
-          <CardTitle title={`${title},   ${createDate[0]}`} className="album-title-card" onTouchTap={handleClick(`/users/${userId}/albums/${id}`)}/>
+          <CardTitle title={`${title}, ${createDate[0]}`} className="album-title-card" onTouchTap={handleClick(`/users/${userId}/albums/${id}`)}/>
         </Card>
       </MuiThemeProvider>
     </div>
