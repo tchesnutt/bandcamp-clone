@@ -11,7 +11,7 @@ class Api::AlbumsController < ApplicationController
         album_id = @album.id
         track_numb = idx.to_i + 1
         Track.create(title: title, track_url: track_url, album_id: album_id, track_number: track_numb)
-        render 'api/albums/show'
+        render 'api/albums/index'
       end
     else
       render json: @album.errors.messages, status: 422

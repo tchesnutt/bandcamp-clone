@@ -23,6 +23,7 @@ const UserMiddleware = ( { dispatch } ) => next => action => {
   };
   const successUsers = users => { dispatch( receiveUsers( users ) ) };
   const errorCallback = error => { dispatch( receiveErrors( error.responseJSON ) ) };
+  console.log('hi from middlware');
   switch ( action.type ) {
   case FETCH_USER:
     fetchUser( action.user_id, successUser, errorCallback );
@@ -31,6 +32,8 @@ const UserMiddleware = ( { dispatch } ) => next => action => {
     fetchUsers( action.searchParams, successUsers, errorCallback );
     break;
   case UPDATE_USER:
+    console.log(action);
+    console.log("hi from updatezone");
     updateUser( action.user, successUser, errorCallback );
     return next( action );
   default:

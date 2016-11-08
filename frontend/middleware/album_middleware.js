@@ -20,7 +20,7 @@ import { merge } from 'lodash';
 
 const AlbumMiddleware = ( { dispatch } ) => next => action => {
   const successAlbum = album => dispatch( receiveAlbum( album ) );
-  const successAlbums = albums => {  dispatch( receiveAlbums( albums ) ); }
+  const successAlbums = albums => { dispatch( receiveAlbums( albums ) ); }
   const successAllAlbums = allAlbums => dispatch( receiveAllAlbums( allAlbums ) );
   const albumErrors = errors => dispatch( receiveAlbumErrors( errors.responseText ) );
   switch ( action.type ) {
@@ -28,6 +28,7 @@ const AlbumMiddleware = ( { dispatch } ) => next => action => {
     fetchAlbums( action.albumId, successAlbum, albumErrors );
     return next( action );
   case FETCH_ALBUMS:
+    console.log( action.user_id );
     fetchAlbums( action.user_id, successAlbums, albumErrors );
     return next( action )
   case FETCH_ALL_ALBUMS:

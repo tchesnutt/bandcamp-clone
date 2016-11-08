@@ -4,6 +4,8 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Album from '../album/album';
+import EditUserButtonContainer from './edit_user_button_container';
+import EditUserFormContainer from './edit_user_form_container';
 import { CSSGrid, measureItems, makeResponsive, layout} from 'react-stonecutter';
 
 
@@ -15,6 +17,7 @@ const myThemes = getMuiTheme ({
 class UserDetail extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.user = {};
     this.albums = [];
     this.user_since = "";
@@ -57,27 +60,29 @@ class UserDetail extends React.Component {
 
     return (
       <div className="user-page" >
-        <div className="user-discography">
-          <Grid
-            component="ul"
-            columns={4}
-            columnWidth={400}
-            itemHeight={400}
-            gutterWidth={5}
-            gutterHeight={5}
-            duration={800}
-            easing="ease-out">
-            {this.handlealbums()}
-          </Grid>
-        </div>
           <div className="user-sidebar">
             <MuiThemeProvider muiTheme={myThemes}>
               <Card initiallyExpanded={true}>
                 <CardMedia className="user-profile-picture"><img src={this.user.profile_pic_url}/></CardMedia>
                 <CardTitle title={this.user.username} subtitle={`Since: ${this.user_since[0]}`}/>
                 <CardText>{this.user.description}</CardText>
+                <EditUserButtonContainer />
+                <EditUserFormContainer />
               </Card>
             </MuiThemeProvider>
+          </div>
+          <div className="user-discography">
+            <Grid
+              component="ul"
+              columns={4}
+              columnWidth={400}
+              itemHeight={400}
+              gutterWidth={5}
+              gutterHeight={5}
+              duration={800}
+              easing="ease-out">
+              {this.handlealbums()}
+            </Grid>
           </div>
       </div>
     )

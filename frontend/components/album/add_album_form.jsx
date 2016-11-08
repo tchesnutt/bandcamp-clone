@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router';
 import {Dialog, FlatButton, RaisedButton, TextField, List, ListItem, Card, CardMedia, CardTitle, CardHeader, CardActions} from 'material-ui';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -92,7 +91,6 @@ class AlbumForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return(
       <div className='add-album-form'>
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
@@ -104,11 +102,11 @@ class AlbumForm extends React.Component {
             {this.displayTracks()}
             <form onSubmit={this.handleTrackSubmit}>
               <TextField type='text'
-                hintText='Add Track Title'
-                floatingLabelText='Track Title'
-                onChange={this.trackUpdate('title')}
-                fullWidth={true}
-                errorText={this.props.errors.title === undefined ? "" : `title ${this.props.errors.title.join(", ")}`}/>
+                         hintText='Add Track Title'
+                         floatingLabelText='Track Title'
+                         onChange={this.trackUpdate('title')}
+                         fullWidth={true}
+                         errorText={this.props.errors.title === undefined ? "" : `title ${this.props.errors.title.join(", ")}`}/>
               <UploadButton uploadImage={this.uploadSong}/>
               <FlatButton label="Submit Track" type='submit' style={submitButtonStyle} primary={true}/>
             </form>
