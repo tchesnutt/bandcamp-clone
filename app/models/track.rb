@@ -6,7 +6,7 @@ class Track < ActiveRecord::Base
     foreign_key: :album_id,
     class_name: :Album
 
-  belongs_to :user,
+  has_many :users,
     through: :album,
     source: :user
 end

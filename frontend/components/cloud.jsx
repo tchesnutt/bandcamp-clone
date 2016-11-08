@@ -2,13 +2,18 @@ import React from 'react';
 import { RaisedButton } from 'material-ui';
 
 class UploadButton extends React.Component {
+  constructor(props){
+    super(props);
+    this.upload = this.upload.bind(this)
+  };
+
   upload(e) {
     e.preventDefault();
-    cloudinary.openUploadWidget(window.CLOUDINARY_OPTIONS, function(error, result){
+    cloudinary.openUploadWidget(window.CLOUDINARY_OPTIONS, ((error, result) => {
       if(!error){
-        this.props.postImage(results[0]);
+        this.props.uploadImage(result[0]);
       }
-    }.bind(this));
+    }).bind(this));
   }
   render() {
     return (

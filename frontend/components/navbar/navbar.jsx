@@ -20,7 +20,7 @@ class NavBar extends React.Component {
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <AppBar
               className='nav'
-              title="Sandcamp"
+              title="S  A  N  D  C  A  M  P"
               titleStyle={{fontFamily: 'Titillium Web'}}
               showMenuIconButton={false}
               >
