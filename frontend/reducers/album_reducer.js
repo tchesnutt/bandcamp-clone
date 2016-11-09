@@ -18,7 +18,7 @@ const AlbumReducer = ( state = _nullAlbums, action ) => {
   case RECEIVE_ALBUM:
     return merge( {}, state, { [ action.album.id ]: action.album } );
   case RECEIVE_ALBUMS:
-    return merge( {}, state, { albums: action.albums } );
+    return merge( {}, _nullAlbums, { albums: action.albums } );
   case RECEIVE_ALL_ALBUMS:
     return merge( {}, state, { albums: action.albums } );
   case RECEIVE_ALBUM_ERRORS:

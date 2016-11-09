@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import EditUserForm from './edit_user_form';
 import { updateUser } from '../../actions/user_actions';
 import { closeEditUserModal, openEditUserModal } from '../../actions/modal_actions';
-import { fetchTracks } from '../../actions/track_actions';
+import { fetchTracks } from '../../actions/tracks_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,

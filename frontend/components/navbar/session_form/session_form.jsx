@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router';
+import { Link, withRouter } from 'react-router';
 import {Dialog, FlatButton, RaisedButton, TextField} from 'material-ui';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -13,6 +13,7 @@ const buttonStyle = {
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
+        console.log();
         this.state = {
             username: "",
             password: "",
@@ -68,12 +69,12 @@ class SessionForm extends React.Component {
             guestLogin = (<FlatButton label='Guest Login' secondary={true} onTouchTap={this.handleGuestLogin}/>)
         }
         return (
-            <div className='session-form'>
+            <section className='session-form'>
                 <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
                     <Dialog open={this.props.authModalOpen} onRequestClose={this.props.closeAuthModal} modal={false} title={buttonName}>
-                        <div className="login-form-container">
+                        <section className="login-form-container">
                             <form onSubmit={this.handleSubmit} className="login-form-box">
-                                <div className="login-form">
+                                <section className="login-form">
                                     <TextField type="text" hintText="Username" floatingLabelText="Username" value={this.state.username} onChange={this.update("username")} className="login-input" fullWidth={true} errorText={this.props.errors.username === undefined
                                         ? ""
                                         : `username ${this.props.errors.username.join(", ")}`}/>
@@ -84,16 +85,16 @@ class SessionForm extends React.Component {
                                     <br/>
                                     <FlatButton label="Submit" type="submit" style={buttonStyle} primary={true}/>
                                     <br/>
-                                </div>
+                                </section>
                             </form>
-                        </div>
-                        <div className="bottom-row-login-form">
+                        </section>
+                        <section className="bottom-row-login-form">
                             {guestLogin}
                             <FlatButton label={linkText} secondary={true} onTouchTap={this.handleToggleFormType}/>
-                        </div>
+                        </section>
                     </Dialog>
                 </MuiThemeProvider>
-            </div>
+            </section>
         );
     }
 }

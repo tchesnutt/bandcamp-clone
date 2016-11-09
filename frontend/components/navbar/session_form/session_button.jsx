@@ -13,29 +13,30 @@ injectTapEventPlugin();
 class SessionButton extends React.Component {
   constructor(props){
     super(props);
+    console.log(props);
   }
 
   render(){
     if(this.props.session.currentUser){
       return (
-        <div className="session">
+        <section className="session">
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <RaisedButton
               label="logout"
               onClick={this.props.logout}
               />
           </MuiThemeProvider>
-        </div>
+        </section>
       );
     } else {
       return (
-        <div className="session">
+        <section className="session">
             <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
               <RaisedButton label="login"
                 onClick={this.props.openAuthModal}>
               </RaisedButton>
             </MuiThemeProvider>
-        </div>
+        </section>
       );
     }
   }

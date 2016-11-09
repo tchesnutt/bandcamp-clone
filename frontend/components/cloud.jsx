@@ -17,9 +17,9 @@ class UploadButton extends React.Component {
   }
   render() {
     return (
-      <div className="upload-form">
+      <section className="upload-form">
         <RaisedButton label='Upload!' onTouchTap={this.upload}/>
-      </div>
+      </section>
     )
   }
 }

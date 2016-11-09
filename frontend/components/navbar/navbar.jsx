@@ -1,54 +1,57 @@
 import React from 'react';
 import LogoButton from './logo_button';
-import SessionButtonContainer from './session_form/session_button_container';
-import AddAlbumButton from '../album/add_album_button';
-import AddAlbumFormContainer from '../album/add_album_form_container';
 import { AppBar, FlatButton, RaisedButton } from 'material-ui';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import AddAlbumButton from '../album/add_album_button';
+import AddAlbumFormContainer from '../album/add_album_form_container';
+import SessionButtonContainer from './session_form/session_button_container';
 import SessionFormContainer from './session_form/session_form_container';
+import { hashHistory } from 'react-router';
 
 class NavBar extends React.Component {
   constructor(props){
     super(props);
   }
+
   render(){
+    const handleClick = url => () => hashHistory.push(url);
     if(this.props.state.session.currentUser) {
       return(
-        <div className='nav'>
+        <section className='nav'>
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <AppBar
               className='nav'
               title="S  A  N  D  C  A  M  P"
               titleStyle={{fontFamily: 'Titillium Web'}}
-              showMenuIconButton={false}
-              >
+              showMenuIconButton={false}>
               <AddAlbumButton props={this.props}/>
               <AddAlbumFormContainer/>
-              <div className="session">
-                <RaisedButton label={this.props.state.session.currentUser.username} />
-              </div>
-              <SessionButtonContainer />
-              <SessionFormContainer />
+              <section className="session">
+                <RaisedButton label={this.props.state.session.currentUser.username} onTouchTap={handleClick(`/users/${this.props.state.session.currentUser.id}`)}/>
+              </section>
+              <SessionButtonContainer/>
+              <SessionFormContainer/>
             </AppBar>
           </MuiThemeProvider>
-        </div>
+        </section>
       );
     } else {
       return(
-        <div className='nav'>
+        <section className='nav'>
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <AppBar
               className='nav'
-              title="Sandcamp"
+              title="S A N D C A M P"
               titleStyle={{fontFamily: 'Titillium Web'}}
               showMenuIconButton={false}
               >
-              <SessionButtonContainer />
+              <SessionButtonContainer/>
+              <SessionFormContainer/>
             </AppBar>
           </MuiThemeProvider>
-        </div>
+        </section>
       );
     }
   }

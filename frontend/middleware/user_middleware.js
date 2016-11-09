@@ -12,29 +12,26 @@ import {
   fetchUsers,
   updateUser
 } from '../util/user_api_util';
-import { closeAuthModal } from '../actions/modal_actions';
+import { closeEditUserModal } from '../actions/modal_actions';
 
 
 const UserMiddleware = ( { dispatch } ) => next => action => {
   const successUser = user => { dispatch( receiveUser( user ) ); };
   const successEditUser = user => {
+    dispatch( closeEditUserModal() );
     dispatch( receiveUser( user ) );
-    dispatch( closeUserEditModal());
   };
   const successUsers = users => { dispatch( receiveUsers( users ) ) };
   const errorCallback = error => { dispatch( receiveErrors( error.responseJSON ) ) };
-  console.log('hi from middlware');
   switch ( action.type ) {
   case FETCH_USER:
     fetchUser( action.user_id, successUser, errorCallback );
     return next( action );
   case FETCH_USERS:
     fetchUsers( action.searchParams, successUsers, errorCallback );
-    break;
+    return next( action );
   case UPDATE_USER:
-    console.log(action);
-    console.log("hi from updatezone");
-    updateUser( action.user, successUser, errorCallback );
+    updateUser( action.user, successEditUser, errorCallback );
     return next( action );
   default:
     return next( action );

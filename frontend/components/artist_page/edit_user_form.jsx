@@ -15,14 +15,15 @@ class EditUserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profile_pic_url: "",
-      description: "",
-      username: "",
+      profile_pic_url: props.currentUser.profile_pic_url,
+      description: props.currentUser.description,
+      username: props.currentUser.username,
       id: props.currentUser.id
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
   }
+
 
   update(field) {
     return e=> this.setState({[field]: e.currentTarget.value});
@@ -35,15 +36,14 @@ class EditUserForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    console.log(this.state);
     this.props.updateUser(user);
   }
 
 
   render(){
-    console.log(this);
+    console.log(this.state);
     return(
-      <div className='edit-user-form'>
+      <section className='edit-user-form'>
         <MuiThemeProvider muiTHeme={getMuiTheme(lightBaseTheme)}>
           <Dialog open={this.props.editUserModal}
                   onRequestClose={this.props.closeEditUserModal}
@@ -72,7 +72,7 @@ class EditUserForm extends React.Component {
             </form>
           </Dialog>
         </MuiThemeProvider>
-      </div>
+      </section>
     )
   }
 }

@@ -7,10 +7,11 @@ import UploadButton from '../cloud';
 import { merge } from 'lodash';
 import FontIcon from 'material-ui/FontIcon';
 import { red600 } from 'material-ui/styles/colors';
+import { Delete, IconButton } from 'material-ui';
 
 
 const submitButtonStyle = {
-    width: '50%'
+    width: '100%'
 };
 
 class AlbumForm extends React.Component {
@@ -36,6 +37,8 @@ class AlbumForm extends React.Component {
     this.handleTrackSubmit = this.handleTrackSubmit.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
     this.uploadSong = this.uploadSong.bind(this);
+    this.handleDeleteTrack = this.handleDeleteTrack.bind(this);
+    this.deleteButton = this.deleteButton.bind(this);
   }
 
   handleSubmit(e) {
@@ -64,18 +67,30 @@ class AlbumForm extends React.Component {
     return e=> merge(this.track, {[field]: e.currentTarget.value});
   }
 
+  handleDeleteTrack(e) {
+    return idx => {
+      let listOfTracks = this.state.tracks;
+      listOfTracks.splice(idx, 1);
+      this.setState({tracks: listOfTracks});
+    }
+  }
+
+  deleteButton(idx) {
+    return (
+      <IconButton onTouchTap={idx => this.handleDeleteTrack(idx)}><Delete color={red600}/></IconButton>
+    )
+  }
+
   displayTracks() {
     let newTracks;
     newTracks = this.state.tracks;
     if(newTracks == undefined) {
-      return(
-        <h1>Upload Some Tracks</h1>
-      )
+      return( <h1>Upload Some Tracks</h1> )
     } else {
       return(
         <List>
           {newTracks.map((track, idx) => (
-            <ListItem key={idx} primaryText={track.title} rightIconButton={<FontIcon className="material-icons" color={red600}>cancel</FontIcon>}/>
+            <ListItem key={idx} primaryText={track.title} rightIconButton={this.deleteButton(idx)}/>
           ))}
         </List>
       );
@@ -92,13 +107,13 @@ class AlbumForm extends React.Component {
 
   render() {
     return(
-      <div className='add-album-form'>
+      <section className='add-album-form'>
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
           <Dialog open={this.props.addAlbumModal}
                   onRequestClose={this.props.closeAddAlbumModal}
                   modal={false}
                   title='Create an Album'>
-            <div className='album-form-container'>
+            <section className='album-form-container'>
             {this.displayTracks()}
             <form onSubmit={this.handleTrackSubmit}>
               <TextField type='text'
@@ -142,10 +157,10 @@ class AlbumForm extends React.Component {
               <br/>
               <FlatButton label="Submit Album" type='submit' style={submitButtonStyle} primary={true}/>
             </form>
-          </div>
+          </section>
           </Dialog>
         </MuiThemeProvider>
-      </div>
+      </section>
     )
   }
 }

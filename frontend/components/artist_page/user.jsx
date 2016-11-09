@@ -59,8 +59,8 @@ class UserDetail extends React.Component {
     });
 
     return (
-      <div className="user-page" >
-          <div className="user-sidebar">
+      <section className="user-page" >
+          <section className="user-sidebar">
             <MuiThemeProvider muiTheme={myThemes}>
               <Card initiallyExpanded={true}>
                 <CardMedia className="user-profile-picture"><img src={this.user.profile_pic_url}/></CardMedia>
@@ -70,8 +70,8 @@ class UserDetail extends React.Component {
                 <EditUserFormContainer />
               </Card>
             </MuiThemeProvider>
-          </div>
-          <div className="user-discography">
+          </section>
+          <section className="user-discography">
             <Grid
               component="ul"
               columns={4}
@@ -83,8 +83,8 @@ class UserDetail extends React.Component {
               easing="ease-out">
               {this.handlealbums()}
             </Grid>
-          </div>
-      </div>
+          </section>
+      </section>
     )
   }
 };

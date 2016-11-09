@@ -24,7 +24,7 @@ export const logout = success => {
     url: '/api/session',
     success,
     error: () => {
-      console.log( "Logout error in SessionApiUtil#logout" );
+      console.log( "Logout error in sessionApiUtil#logout" );
     }
   } );
 };

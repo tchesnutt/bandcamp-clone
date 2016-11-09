@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import EditUserButton from './edit_user_button';
 import { openEditUserModal } from '../../actions/modal_actions';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => {
+  return {
   session: state.session
-});
+}};
 
 const mapDispatchToProps = dispatch => ({
   openEditUserModal: () => dispatch(openEditUserModal())

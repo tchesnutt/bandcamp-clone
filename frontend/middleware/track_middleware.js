@@ -6,7 +6,7 @@ import {
   FETCH_TRACKS,
   CREATE_TRACK,
   UPDATE_TRACK
-} from '../actions/track_actions';
+} from '../actions/tracks_actions';
 import {
   fetchTracks,
   fetchTrack,

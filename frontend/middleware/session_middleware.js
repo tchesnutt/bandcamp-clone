@@ -18,9 +18,7 @@ const SessionMiddleware = ( { dispatch } ) => next => action => {
     dispatch( closeAuthModal() );
     dispatch( receiveCurrentUser( user ) );
   };
-  const errorCallback = error => {
-    dispatch( receiveErrors( error.responseJSON ) )
-  };
+  const errorCallback = error => { dispatch( receiveErrors( error.responseJSON ) ) };
   switch ( action.type ) {
   case LOGIN:
     login( action.user, successCallback, errorCallback );

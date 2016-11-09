@@ -6,13 +6,13 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const AddAlbumButton = ({props}) => {
   return (
-    <div className="session">
+    <section className="session">
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <RaisedButton label="Add Album"
           onTouchTap={props.openAddAlbumModal}>
         </RaisedButton>
       </MuiThemeProvider>
-    </div>
+    </section>
   );
 };
 

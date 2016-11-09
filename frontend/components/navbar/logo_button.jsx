@@ -6,11 +6,11 @@ const buttonStyle = {
 };
 
 const LogoButton = () => (
-  <div className='logo'>
+  <section className='logo'>
     <Link to="/">
       <h1>Sandcamp</h1>
     </Link>
-  </div>
+  </section>
 );
 
 export default LogoButton;
