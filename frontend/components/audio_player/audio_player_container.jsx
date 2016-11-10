@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import AudioPlayer from './audio_player';
+// import AudioPlayer from './audio_player';
 
 const mapStateToProps = ({tracks}) => {
   let currentTrackUrl;
@@ -18,8 +18,3 @@ const mapStateToProps = ({tracks}) => {
 const mapDispatchToProps = dispatch => ({
 
 });
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AudioPlayer);

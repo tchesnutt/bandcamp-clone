@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { receivePlaying } from '../../actions/tracks_actions';
-import AudioPlayer from './audio_player';
+import AudioPlayer from './basic_audio';
 
 const mapStateToProps = state => ({
-  currentTrack: state.currentTrack,
-  playing: state.playback.playing,
+  currentTrack: state.track,
+  playing: state.currentSong
 });
 
 const mapDispatchToProps = dispatch => ({

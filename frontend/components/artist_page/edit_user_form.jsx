@@ -41,7 +41,6 @@ class EditUserForm extends React.Component {
 
 
   render(){
-    console.log(this.state);
     return(
       <section className='edit-user-form'>
         <MuiThemeProvider muiTHeme={getMuiTheme(lightBaseTheme)}>

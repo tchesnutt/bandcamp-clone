@@ -9,7 +9,8 @@ export default (state = _defaultPlayingState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_PLAYING:
-      return merge({}, {playing: action.type});
+    console.log(action);
+      return merge({}, {playing: action.track});
     default:
       return state;
   }

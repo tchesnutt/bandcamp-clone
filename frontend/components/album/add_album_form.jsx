@@ -13,6 +13,9 @@ import { Delete, IconButton } from 'material-ui';
 const submitButtonStyle = {
     width: '100%'
 };
+const deleteButtonStyle = {
+    color: '#E53935'
+};
 
 class AlbumForm extends React.Component {
   constructor(props) {
@@ -67,8 +70,9 @@ class AlbumForm extends React.Component {
     return e=> merge(this.track, {[field]: e.currentTarget.value});
   }
 
-  handleDeleteTrack(e) {
-    return idx => {
+  handleDeleteTrack(idx) {
+    return e => {
+      e.preventDefault();
       let listOfTracks = this.state.tracks;
       listOfTracks.splice(idx, 1);
       this.setState({tracks: listOfTracks});
@@ -77,7 +81,7 @@ class AlbumForm extends React.Component {
 
   deleteButton(idx) {
     return (
-      <IconButton onTouchTap={idx => this.handleDeleteTrack(idx)}><Delete color={red600}/></IconButton>
+      <IconButton onTouchTap={this.handleDeleteTrack(idx)}><Delete color={red600}/></IconButton>
     )
   }
 
@@ -90,7 +94,11 @@ class AlbumForm extends React.Component {
       return(
         <List>
           {newTracks.map((track, idx) => (
-            <ListItem key={idx} primaryText={track.title} rightIconButton={this.deleteButton(idx)}/>
+            <section className='track-list-form' key={idx}>
+              <ListItem key={idx}
+                primaryText={track.title}/>
+              <IconButton iconClassName='material-icons' style={deleteButtonStyle} color={red600} onTouchTap={this.handleDeleteTrack(idx)}>delete</IconButton>
+            </section>
           ))}
         </List>
       );

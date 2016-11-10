@@ -13,7 +13,6 @@ injectTapEventPlugin();
 class SessionButton extends React.Component {
   constructor(props){
     super(props);
-    console.log(props);
   }
 
   render(){

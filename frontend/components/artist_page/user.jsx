@@ -12,12 +12,10 @@ import { CSSGrid, measureItems, makeResponsive, layout} from 'react-stonecutter'
 const myThemes = getMuiTheme ({
   fontFamily: 'Titillium Web',
 });
-// TODO: compoent did mount defines artistId
 
 class UserDetail extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.user = {};
     this.albums = [];
     this.user_since = "";
