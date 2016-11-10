@@ -18,7 +18,7 @@ const TracksReducer = ( state = _nullTrack, action ) => {
   case RECEIVE_TRACK:
     return merge( {}, state, { tracks: action.track } );
   case RECEIVE_TRACKS:
-    return merge( {}, state, { track: action.tracks } );
+    return merge( {}, state, { tracks: action.tracks } );
   case RECEIVE_TRACK_ERRORS:
     return merge( {}, state, { errors: action.errors } );
   default:

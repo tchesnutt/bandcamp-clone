@@ -19,9 +19,27 @@ class Api::TracksController < ApplicationController
     end
   end
 
+  def index
+    @tracks = Track.where(album_id: params[:album_id])
+    if @tracks
+      render 'api/tracks/index'
+    else
+      render json: ["Artist has no tracks"], status: 404
+    end
+  end
+
+  def show
+    @track = Track.find(params[:id])
+    if @track
+      render 'api/tracks/show'
+    else
+      render json: ["No track found"], status: 404
+    end
+  end
+
   private
 
   def track_params
-    params.require(:track).permit(:title, :album_id, :track_url)
+    params.require(:track).permit(:title, :album_id, :track_url, :track_number)
   end
 end

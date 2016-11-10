@@ -1,1 +1,1 @@
-json.partial! "api/users/user", track: @track
+json.partial! "api/track/track", track: @track

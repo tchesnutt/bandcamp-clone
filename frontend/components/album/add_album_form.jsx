@@ -5,7 +5,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import UploadButton from '../cloud';
 import { merge } from 'lodash';
-import FontIcon from 'material-ui/FontIcon';
 import { red600 } from 'material-ui/styles/colors';
 import { Delete, IconButton } from 'material-ui';
 

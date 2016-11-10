@@ -21,7 +21,7 @@ class UserDetail extends React.Component {
     this.user_since = "";
     let artistId;
     artistId = 1;
-  };
+  }
 
   handlealbums() {
     if (this.albums.length > 0) {
@@ -42,14 +42,14 @@ class UserDetail extends React.Component {
         <h1>Loading</h1>
       );
     }
-  };
+  }
 
   render() {
     if (this.props.viewedUsers !== undefined) {
       this.user = this.props.viewedUsers;
       this.albums = this.props.albums;
-      this.user_since = this.props.viewedUsers.updated_at.split("-");
-    }
+      this.user_since = this.props.viewedUsers.created_at.split("-");
+    };
     const Grid = makeResponsive(measureItems(CSSGrid), {
       maxWidth: 1920,
       minPadding: 100,

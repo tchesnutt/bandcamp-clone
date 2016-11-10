@@ -12,14 +12,14 @@ export const receivePlaying = track => ( {
   track
 })
 
-export const fetchTracks = album_id => ( {
+export const fetchTracks = albumId => ( {
   type: FETCH_TRACKS,
-  album_id
+  albumId
 } );
 
-export const fetchTrack = track_id => ( {
+export const fetchTrack = trackId => ( {
   type: FETCH_TRACK,
-  track_id
+  trackId
 } );
 
 

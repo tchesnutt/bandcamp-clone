@@ -15,7 +15,7 @@ import {
 } from '../util/track_api_util';
 import { merge } from 'lodash';
 
-const TrackMiddleware = ( { dispatcsh } ) => next => action => {
+const TrackMiddleware = ( { dispatch } ) => next => action => {
   const successTrack = track => dispatch( receiveTrack( track ) );
   const successTracks = tracks => dispatch( receiveTracks( tracks ) );
   const trackErrors = errors => dispatch( receiveTrackErrors( errors.responseText ) );
