@@ -4,9 +4,10 @@ import ReactPlayer from 'react-player';
 class AudioPlayer extends React.Component {
   constructor(props){
     super(props);
+    console.log(props);
     this.state = {
-      currentTrack: this.props.currentTrack,
-      playing: this.props.playing.playing
+      currentSong: this.props.currentSong,
+      playing: this.props.playing
     };
     this.togglePlay = this.togglePlay.bind(this);
     this.renderPlayer = this.renderPlayer.bind(this);
@@ -15,11 +16,17 @@ class AudioPlayer extends React.Component {
     this.appear = this.appear.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    // debugger
+    this.setState({currentSong: nextProps.currentSong, playing: nextProps.playing})
+  }
+
   renderPlayer(){
-    if (this.state.currentTrack){
+    if (this.state.currentSong !== undefined){
+      console.log(this.state);
       return (
         <ReactPlayer
-          url={this.state.currentTrack.cover_url}
+          url={this.state.currentSong.track_url}
           playing={this.state.playing}
           hidden={true}
           onProgress={this.updatePlaybar}/>
@@ -34,7 +41,7 @@ class AudioPlayer extends React.Component {
   }
 
   appear(){
-    if(this.state.currentTrack.title !== ""){
+    if(this.state.currentSong === undefined){
       return (
         {opacity: 1}
       );
@@ -68,24 +75,30 @@ class AudioPlayer extends React.Component {
   }
 
   render(){
-    return (
-      <section className="audio-player" style={this.appear()}>
-        <span className="audio-buttons">
-          {this.renderPlayPause()}
-          <img src={this.props.currentTrack.cover_url} className="playback-cover"/>
-          <h1 className="player-song-title">{this.props.currentTrack.title}</h1>
-        </span>
-        <section className='progress-bar'>
-          <section className='audio-progress'
-            style={{width: `${this.state.progress}%`}}>
+    console.log(this.state);
+    if(this.state.currentSong !== undefined) {
+      return (
+        <section className="audio-player" style={this.appear()}>
+          <span className="audio-buttons">
+            {this.renderPlayPause()}
+            <h1 className="player-song-title">{this.props.currentSong.title}</h1>
+          </span>
+          <section className='progress-bar'>
+            <section className='audio-progress'
+              style={{width: `${this.state.progress}%`}}>
+            </section>
+            <section className='progress-circle'
+              style={{left: `${this.state.progress - 8}px`}}>
+            </section>
           </section>
-          <section className='progress-circle'
-            style={{left: `${this.state.progress - 8}px`}}>
-          </section>
+          {this.renderPlayer()}
         </section>
-        {this.renderPlayer()}
-      </section>
-    );
+      );
+    } else {
+      return (
+        <section></section>
+      );
+    }
   }
 }
 

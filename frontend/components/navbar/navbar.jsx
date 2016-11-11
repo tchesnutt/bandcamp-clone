@@ -1,6 +1,6 @@
 import React from 'react';
 import LogoButton from './logo_button';
-import { AppBar, FlatButton, RaisedButton } from 'material-ui';
+import { Toolbar, ToolbarGroup, FlatButton, RaisedButton } from 'material-ui';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -9,6 +9,10 @@ import AddAlbumFormContainer from '../album/add_album_form_container';
 import SessionButtonContainer from './session_form/session_button_container';
 import SessionFormContainer from './session_form/session_form_container';
 import { hashHistory } from 'react-router';
+
+const navbarStyle = {
+  backgroundColor: '#651FFF'
+}
 
 class NavBar extends React.Component {
   constructor(props){
@@ -21,19 +25,19 @@ class NavBar extends React.Component {
       return(
         <section className='nav'>
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-            <AppBar
-              className='nav'
-              title="S  A  N  D  C  A  M  P"
-              titleStyle={{fontFamily: 'Titillium Web'}}
-              showMenuIconButton={false}>
-              <AddAlbumButton props={this.props}/>
-              <AddAlbumFormContainer/>
-              <section className="session">
-                <RaisedButton label={this.props.state.session.currentUser.username} onTouchTap={handleClick(`/users/${this.props.state.session.currentUser.id}`)}/>
-              </section>
-              <SessionButtonContainer/>
-              <SessionFormContainer/>
-            </AppBar>
+            <Toolbar style={navbarStyle}>
+              <ToolbarGroup>
+                <AddAlbumButton props={this.props}/>
+                <AddAlbumFormContainer/>
+              </ToolbarGroup>
+              <ToolbarGroup>
+                <section className="session">
+                  <RaisedButton label={this.props.state.session.currentUser.username} onTouchTap={handleClick(`/users/${this.props.state.session.currentUser.id}`)}/>
+                </section>
+                <SessionButtonContainer/>
+                <SessionFormContainer/>
+              </ToolbarGroup>
+            </Toolbar>
           </MuiThemeProvider>
         </section>
       );
@@ -41,15 +45,12 @@ class NavBar extends React.Component {
       return(
         <section className='nav'>
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-            <AppBar
-              className='nav'
-              title="S A N D C A M P"
-              titleStyle={{fontFamily: 'Titillium Web'}}
-              showMenuIconButton={false}
-              >
-              <SessionButtonContainer/>
-              <SessionFormContainer/>
-            </AppBar>
+            <Toolbar>
+              <ToolbarGroup>
+                <SessionButtonContainer/>
+                <SessionFormContainer/>
+              </ToolbarGroup>
+            </Toolbar>
           </MuiThemeProvider>
         </section>
       );

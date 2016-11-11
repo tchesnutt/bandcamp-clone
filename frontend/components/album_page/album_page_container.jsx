@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AlbumPage from './album_page';
-import { recieveTrack } from '../../actions/track_actions';
+import { receivePlaying, receiveSong } from '../../actions/tracks_actions';
 import { fetchTracks } from '../../actions/track_actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  recieveTrack: (track) => dispatch(recieveTrack(track))
+  receivePlaying: () => dispatch(receivePlaying()),
+  receiveSong: (track) => dispatch(receiveSong(track))
 })
 
 export default connect(

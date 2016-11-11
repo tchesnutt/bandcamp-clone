@@ -6,9 +6,14 @@ export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
 export const RECEIVE_PLAYING = "RECEIVE_PLAYING";
+export const RECEIVE_SONG = "RECEIVE_SONG";
 
-export const receivePlaying = track => ( {
+export const receivePlaying = () => ( {
   type: RECEIVE_PLAYING,
+})
+
+export const receiveSong = track => ( {
+  type: RECEIVE_SONG,
   track
 })
 

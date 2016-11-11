@@ -14,8 +14,8 @@ import UserReducer from './user_reducer';
 const RootReducer = combineReducers({
     session: SessionReducer,
     tracks: TracksReducer,
-    track: TrackReducer,
-    currentSong: BasicAudioReducer,
+    currentSong: TrackReducer,
+    playing: BasicAudioReducer,
     albums: AlbumReducer,
     modals: ModalReducer,
     viewUsers: UserReducer

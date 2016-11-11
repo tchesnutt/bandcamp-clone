@@ -3,8 +3,8 @@ import { receivePlaying } from '../../actions/tracks_actions';
 import AudioPlayer from './basic_audio';
 
 const mapStateToProps = state => ({
-  currentTrack: state.track,
-  playing: state.currentSong
+  currentSong: state.currentSong,
+  playing: state.playing.playing
 });
 
 const mapDispatchToProps = dispatch => ({

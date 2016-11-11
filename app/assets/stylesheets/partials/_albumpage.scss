@@ -1,0 +1,39 @@
+.track-element {
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.track-list-title {
+  font-size: 20px;
+  font-style: oblique;
+  text-decoration: underline;
+}
+
+.track-list {
+  margin: 20px;
+}
+
+.track-list-flex {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.album-art-album-page {
+  margin: 10px;
+}
+
+.user-profile-picture {
+  margin: 10px;
+}
+
+.other-albums {
+  margin-top: 10px;
+}
+
+.whole-album-page {
+  display: flex;
+  justify-content: center;
+}

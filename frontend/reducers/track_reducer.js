@@ -1,5 +1,5 @@
 import {merge} from 'lodash';
-import {RECEIVE_TRACK} from '../actions/tracks_actions';
+import {RECEIVE_SONG} from '../actions/tracks_actions';
 
 const _defaultTrack = {
   title: "",
@@ -9,7 +9,7 @@ const _defaultTrack = {
 
 const TrackReducer = (state = _defaultTrack, action) => {
   switch(action.type){
-    case RECEIVE_TRACK:
+    case RECEIVE_SONG:
       return merge({}, action.track);
     default:
       return state;
