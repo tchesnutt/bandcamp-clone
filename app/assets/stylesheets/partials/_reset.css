@@ -19,6 +19,13 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	font-family: 'Titillium Web';
 }
+
+body {
+	background-image: url("http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478892811/slashsplash_gttlzi.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {

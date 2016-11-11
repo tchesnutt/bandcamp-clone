@@ -23,11 +23,11 @@ class UserDetail extends React.Component {
     artistId = 1;
   }
 
-  handlealbums() {
+  handleAlbums() {
     if (this.albums.length > 0) {
       return(
         this.albums.map((album, idx) => (
-          <li key={idx}>
+          <li key={idx} className="album-element">
             <Album
             id={album.id}
             userId={album.user_id}
@@ -79,7 +79,7 @@ class UserDetail extends React.Component {
               gutterHeight={5}
               duration={800}
               easing="ease-out">
-              {this.handlealbums()}
+              {this.handleAlbums()}
             </Grid>
           </section>
       </section>

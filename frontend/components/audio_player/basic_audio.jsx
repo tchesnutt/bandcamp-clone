@@ -2,7 +2,7 @@ import React from 'react';
 import ReactPlayer from 'react-player';
 
 class AudioPlayer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       currentSong: this.props.currentSong,
@@ -19,7 +19,7 @@ class AudioPlayer extends React.Component {
     this.setState({currentSong: nextProps.currentSong, playing: nextProps.playing})
   }
 
-  renderPlayer(){
+  renderPlayer() {
     if (this.state.currentSong !== undefined){
       return (
         <ReactPlayer
@@ -33,23 +33,19 @@ class AudioPlayer extends React.Component {
     }
   }
 
-  updatePlaybar({played}){
+  updatePlaybar({played}) {
     this.setState({progress: played * 100});
   }
 
-  appear(){
+  appear() {
     if(this.state.currentSong === undefined){
-      return (
-        {opacity: 1}
-      );
+      return ( {opacity: 0} );
     } else {
-      return (
-        {opacity: 1}
-      );
+      return ( {opacity: 1} );
     }
   }
 
-  renderPlayPause(){
+  renderPlayPause() {
    if(this.state.playing === false){
      return (
        <img onTouchTap={this.togglePlay} src="https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_3-512.png" className="play-button"/>
@@ -61,7 +57,7 @@ class AudioPlayer extends React.Component {
    }
  }
 
-  togglePlay(){
+  togglePlay() {
     if(this.state.playing === true){
       this.props.receivePlaying(false);
       this.setState({playing: false});
@@ -71,21 +67,20 @@ class AudioPlayer extends React.Component {
     }
   }
 
-  render(){
+  render() {
     if(this.state.currentSong !== undefined) {
       return (
         <section className="audio-player" style={this.appear()}>
-          <span className="audio-buttons">
-            {this.renderPlayPause()}
-            <h1 className="player-song-title">{this.props.currentSong.title}</h1>
-          </span>
           <section className='progress-bar'>
             <section className='audio-progress'
               style={{width: `${this.state.progress}%`}}>
             </section>
-            <section className='progress-circle'
-              style={{left: `${this.state.progress - 8}px`}}>
-            </section>
+          </section>
+          <section className='bottom-part-audio-player'>
+            <span className="audio-buttons">
+              {this.renderPlayPause()}
+            </span>
+            <h1 className="player-song-title">{this.props.currentSong.title}</h1>
           </section>
           {this.renderPlayer()}
         </section>

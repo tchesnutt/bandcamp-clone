@@ -2,9 +2,6 @@ import React from 'react';
 import NavBarContainer from './navbar/navbar_container';
 import SessionFormContainer from './navbar/session_form/session_form_container';
 import BasicAudioPlayerContainer from './audio_player/basic_audio_container';
-import { Router, Route, Link, browserHistory } from 'react-router'
-
-
 
 class App extends React.Component {
   constructor(props) {

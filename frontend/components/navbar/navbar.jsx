@@ -12,7 +12,7 @@ import { hashHistory } from 'react-router';
 import SearchContainer from './search_container';
 
 const navbarStyle = {
-  backgroundColor: '#CBE86B',
+  backgroundColor: '#FF3D00',
   width: '100%'
 }
 
@@ -57,10 +57,12 @@ class NavBar extends React.Component {
       return(
         <section className='nav'>
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-            <Toolbar>
+            <Toolbar style={navbarStyle}>
               <ToolbarGroup>
-                <SessionButtonContainer/>
-                <SessionFormContainer/>
+                <section className="right-nav-bar">
+                  <SessionButtonContainer/>
+                  <SessionFormContainer/>
+                </section>
               </ToolbarGroup>
             </Toolbar>
           </MuiThemeProvider>

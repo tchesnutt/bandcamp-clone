@@ -1,3 +1,5 @@
+@import 'modules/colors';
+
 .play-button {
   height: 40px;
   width: 40px;
@@ -15,4 +17,39 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.audio-progress {
+  background-color: red;
+}
+
+.audio-player {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #B0BEC5;
+}
+
+.player-song-title {
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.progress-bar{
+  content: "";
+  background: #3E3E40;
+  height: 6px;
+  width: 100%;
+}
+.audio-progress{
+  background: $primaryColor;
+  height: 100%;
+}
+
+.bottom-part-audio-player {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
