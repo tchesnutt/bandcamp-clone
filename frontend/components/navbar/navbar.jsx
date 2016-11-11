@@ -9,9 +9,11 @@ import AddAlbumFormContainer from '../album/add_album_form_container';
 import SessionButtonContainer from './session_form/session_button_container';
 import SessionFormContainer from './session_form/session_form_container';
 import { hashHistory } from 'react-router';
+import SearchContainer from './search_container';
 
 const navbarStyle = {
-  backgroundColor: '#651FFF'
+  backgroundColor: '#CBE86B',
+  width: '100%'
 }
 
 class NavBar extends React.Component {
@@ -27,15 +29,25 @@ class NavBar extends React.Component {
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <Toolbar style={navbarStyle}>
               <ToolbarGroup>
-                <AddAlbumButton props={this.props}/>
-                <AddAlbumFormContainer/>
+                <section className="logo-area">
+                  <h1>S A N D C A M P</h1>
+                </section>
               </ToolbarGroup>
               <ToolbarGroup>
-                <section className="session">
+                <SearchContainer/>
+              </ToolbarGroup>
+              <ToolbarGroup>
+                <section className="right-nav-bar">
+                  <AddAlbumButton props={this.props}/>
+                  <AddAlbumFormContainer/>
+                </section>
+                <section className="right-nav-bar">
                   <RaisedButton label={this.props.state.session.currentUser.username} onTouchTap={handleClick(`/users/${this.props.state.session.currentUser.id}`)}/>
                 </section>
-                <SessionButtonContainer/>
-                <SessionFormContainer/>
+                <section className="right-nav-bar">
+                  <SessionButtonContainer/>
+                  <SessionFormContainer/>
+                </section>
               </ToolbarGroup>
             </Toolbar>
           </MuiThemeProvider>

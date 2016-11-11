@@ -5,12 +5,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Album from '../album/album';
 
-const cardStyle ={
+const cardStyle = {
   width: '300px',
   height: 'auto',
 };
 
-const albumCardStyle ={
+const albumCardStyle = {
   width: '400px',
   height: 'auto',
   margin: '20px'
@@ -19,7 +19,6 @@ const albumCardStyle ={
 class AlbumPage extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.displayTracks = this.displayTracks.bind(this);
     this.displayArtist = this.displayArtist.bind(this);
     this.displayAlbumArt = this.displayAlbumArt.bind(this);

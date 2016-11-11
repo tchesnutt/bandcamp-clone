@@ -34,7 +34,7 @@ const AlbumMiddleware = ( { dispatch } ) => next => action => {
     return next( action );
   case FETCH_ALBUMS:
     fetchAlbums( action.user_id, successAlbums, albumErrors );
-    return next( action )
+    return next( action );
   case FETCH_ALL_ALBUMS:
     fetchAllAlbums( successAllAlbums );
     return next( action );

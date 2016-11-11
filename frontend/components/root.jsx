@@ -5,7 +5,7 @@ import App from './app'
 import UserContainer from './artist_page/user_container';
 import AlbumPageContainer from './album_page/album_page_container';
 import { fetchUser } from '../actions/user_actions';
-import { fetchAlbums } from '../actions/album_actions';
+import { fetchAlbums, fetchAllAlbums } from '../actions/album_actions';
 import { fetchTracks } from '../actions/tracks_actions';
 import {
   blue500, blue700,
@@ -30,10 +30,14 @@ const Root = ({ store }) => {
 		store.dispatch(fetchTracks(nextState.params.albumId));
 	};
 
+  const requestDataSource = nextState => {
+    store.dispatch(fetchAllAlbums());
+  }
+
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/" component={App}>
+        <Route path="/" component={App} onEnter={requestDataSource}>
           <Route path="users/:id" component={UserContainer} onEnter={requestUserOnEnter}/>
           <Route path='users/:id/albums/:albumId' component={AlbumPageContainer} onEnter={requestAlbumOnEnter}/>
         </Route>

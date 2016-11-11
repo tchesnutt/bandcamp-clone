@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardMedia, CardTitle} from 'material-ui/Card';
+import { Card, CardMedia, CardTitle } from 'material-ui/Card';
 import { withRouter } from 'react-router';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

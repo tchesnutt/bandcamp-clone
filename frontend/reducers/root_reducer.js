@@ -18,7 +18,7 @@ const RootReducer = combineReducers({
     playing: BasicAudioReducer,
     albums: AlbumReducer,
     modals: ModalReducer,
-    viewUsers: UserReducer
+    viewUsers: UserReducer,
 });
 
 export default RootReducer;

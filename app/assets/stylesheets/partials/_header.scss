@@ -6,11 +6,23 @@
   background: $secondaryColor;
 }
 
-.session {
+.right-nav-bar {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 10px;
+}
+
+.logo-area {
+  text-decoration-color: $secondaryColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-area > h1 {
+  color: $secondaryColor;
+  font-size: 30px;
 }
 
 .bottom-row-login-form {

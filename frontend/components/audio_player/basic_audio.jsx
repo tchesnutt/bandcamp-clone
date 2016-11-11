@@ -4,7 +4,6 @@ import ReactPlayer from 'react-player';
 class AudioPlayer extends React.Component {
   constructor(props){
     super(props);
-    console.log(props);
     this.state = {
       currentSong: this.props.currentSong,
       playing: this.props.playing
@@ -17,13 +16,11 @@ class AudioPlayer extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // debugger
     this.setState({currentSong: nextProps.currentSong, playing: nextProps.playing})
   }
 
   renderPlayer(){
     if (this.state.currentSong !== undefined){
-      console.log(this.state);
       return (
         <ReactPlayer
           url={this.state.currentSong.track_url}
@@ -75,7 +72,6 @@ class AudioPlayer extends React.Component {
   }
 
   render(){
-    console.log(this.state);
     if(this.state.currentSong !== undefined) {
       return (
         <section className="audio-player" style={this.appear()}>

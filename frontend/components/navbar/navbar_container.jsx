@@ -1,6 +1,6 @@
-import {connect} from 'react-redux';
-import {logout} from '../../actions/session_actions';
-import {openAuthModal, openAddAlbumModal} from '../../actions/modal_actions';
+import { connect } from 'react-redux';
+import { logout } from '../../actions/session_actions';
+import { openAuthModal, openAddAlbumModal } from '../../actions/modal_actions';
 import Navbar from './navbar';
 
 const mapStateToProps = (state) => ({

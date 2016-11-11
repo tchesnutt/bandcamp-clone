@@ -19,11 +19,20 @@ class Api::AlbumsController < ApplicationController
   end
 
   def index
-    @albums = Album.where(user_id: params[:artist_id])
-    if @albums
-      render 'api/albums/index'
+    if params[:artist_id]
+      @albums = Album.where(user_id: params[:artist_id])
+      if @albums
+        render 'api/albums/index'
+      else
+        render json: ["Artist has no albums"], status: 404
+      end
     else
-      render json: ["Artist has no albums"], status: 404
+      @albums = Album.all
+      if @albums
+        render 'api/albums/index'
+      else
+        render json: ['No Albums Found, Panic'], status: 404
+      end
     end
   end
 

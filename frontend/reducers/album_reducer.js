@@ -9,6 +9,7 @@ import { merge } from 'lodash';
 const _nullAlbums = {
   albums: {},
   addAlbum: {},
+  albumSearch: [],
   errors: []
 };
 
@@ -20,7 +21,7 @@ const AlbumReducer = ( state = _nullAlbums, action ) => {
   case RECEIVE_ALBUMS:
     return merge( {}, _nullAlbums, { albums: action.albums } );
   case RECEIVE_ALL_ALBUMS:
-    return merge( {}, state, { albums: action.albums } );
+    return merge( {}, state, { albumSearch: action.albums } );
   case RECEIVE_ALBUM_ERRORS:
     return merge( {}, state, { errors: action.errors } );
   default:

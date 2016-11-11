@@ -43,7 +43,7 @@ export const receiveAlbums = albums => ( {
 } );
 
 export const receiveAllAlbums = albums => ( {
-  type: RECEIVE_ALBUMS,
+  type: RECEIVE_ALL_ALBUMS,
   albums
 } );
 
