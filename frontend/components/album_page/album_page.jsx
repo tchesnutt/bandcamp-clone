@@ -1,9 +1,10 @@
 import React from 'react';
-import { Paper, Card, CardMedia, CardTitle, CardText, IconButton, red600, PlayArrow, lightGreenA700, FontIcon } from 'material-ui';
+import { Paper, Card, CardMedia, CardActions, FlatButton,  CardTitle, CardText, IconButton, red600, PlayArrow, lightGreenA700, FontIcon } from 'material-ui';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Album from '../album/album';
+import { hashHistory } from 'react-router';
 
 const cardStyle = {
   width: '300px',
@@ -23,11 +24,11 @@ class AlbumPage extends React.Component {
     this.displayArtist = this.displayArtist.bind(this);
     this.displayAlbumArt = this.displayAlbumArt.bind(this);
     this.displayAlbums = this.displayAlbums.bind(this);
+    this.handleGoto = this.handleGoto.bind(this);
   }
 
   handleToPlayer(track) {
     return e =>{
-      console.log("to player");
       this.props.receiveSong(track)
       this.props.receivePlaying();
     }
@@ -52,6 +53,10 @@ class AlbumPage extends React.Component {
     }
   }
 
+  handleGoto(url){
+    hashHistory.push(url)
+  }
+
   displayArtist(){
     if (this.props.viewedUser !== undefined) {
       let user_since = this.props.viewedUser.created_at.split("-");
@@ -61,6 +66,9 @@ class AlbumPage extends React.Component {
             <CardMedia className="user-profile-picture"><img src={this.props.viewedUser.profile_pic_url}/></CardMedia>
             <CardTitle title={this.props.viewedUser.username} subtitle={`Since: ${user_since[0]}`}/>
             <CardText>{this.props.viewedUser.description}</CardText>
+            <CardActions>
+              <FlatButton label='Goto' onTouchTap={this.handleGoto(`users/${this.props.params.id}`)}/>
+            </CardActions>
           </Card>
         </MuiThemeProvider>
       )

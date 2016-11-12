@@ -5,7 +5,6 @@ import Album from '../album/album';
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   handleAlbums() {
@@ -45,9 +44,9 @@ class Splash extends React.Component {
             component="ul"
             columns={4}
             columnWidth={400}
-            itemHeight={400}
-            gutterWidth={5}
-            gutterHeight={5}
+            itemHeight={475}
+            gutterWidth={0}
+            gutterHeight={0}
             duration={800}
             easing="ease-out">
             {this.handleAlbums()}

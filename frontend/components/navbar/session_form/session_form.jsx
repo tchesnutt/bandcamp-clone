@@ -13,7 +13,6 @@ const buttonStyle = {
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        console.log();
         this.state = {
             username: "",
             password: "",

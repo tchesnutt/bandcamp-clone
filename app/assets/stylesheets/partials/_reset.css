@@ -25,6 +25,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
+	background-size: cover;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,

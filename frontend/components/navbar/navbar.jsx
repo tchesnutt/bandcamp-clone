@@ -8,7 +8,7 @@ import AddAlbumButton from '../album/add_album_button';
 import AddAlbumFormContainer from '../album/add_album_form_container';
 import SessionButtonContainer from './session_form/session_button_container';
 import SessionFormContainer from './session_form/session_form_container';
-import { hashHistory } from 'react-router';
+import { hashHistory, Link } from 'react-router';
 import SearchContainer from './search_container';
 
 const navbarStyle = {
@@ -29,8 +29,10 @@ class NavBar extends React.Component {
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <Toolbar style={navbarStyle}>
               <ToolbarGroup>
-                <section className="logo-area">
-                  <h1>S A N D C A M P</h1>
+                <section className="logo-area" >
+                    <Link to="/explore">
+                      <h1>S A N D C A M P</h1>
+                    </Link>
                 </section>
               </ToolbarGroup>
               <ToolbarGroup>

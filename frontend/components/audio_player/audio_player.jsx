@@ -66,7 +66,6 @@ class Player extends React.Component {
   }
 
   displayMessages(messages) {
-    console.log("player messages");
     return(
         <ul className="errors">
           Whoops!
@@ -93,12 +92,10 @@ class Player extends React.Component {
             volume={this.state.volume}
             playing={this.state.playing}
             onReady={() => this.setState({["playing"]: true}) }
-            onStart={() => console.log('onStart')}
             onPlay={() => this.setState({ ["playing"]: true })}
             onPause={() => this.setState({ ["playing"]: false })}
             onBuffer={() => (this.displayMessages(["loading"]))}
             onEnded={() => this.setState({ ["playing"]: false })}
-            onError={e => console.log('onError', e)}
             onProgress={this.onProgress}
             onDuration={duration => this.setState({ duration })}/>
         </section>
