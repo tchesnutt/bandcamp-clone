@@ -19,6 +19,10 @@ const navbarStyle = {
 class NavBar extends React.Component {
   constructor(props){
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(url) {
+    hashHistory.push(url)
   }
 
   render(){
@@ -29,10 +33,8 @@ class NavBar extends React.Component {
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <Toolbar style={navbarStyle}>
               <ToolbarGroup>
-                <section className="logo-area" >
-                    <Link to="/explore">
-                      <h1>S A N D C A M P</h1>
-                    </Link>
+                <section className="logo-area" onClick={this.handleClick('explore')} >  
+                    <h1>S A N D C A M P</h1>
                 </section>
               </ToolbarGroup>
               <ToolbarGroup>

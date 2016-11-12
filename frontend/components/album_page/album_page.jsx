@@ -67,7 +67,6 @@ class AlbumPage extends React.Component {
             <CardTitle title={this.props.viewedUser.username} subtitle={`Since: ${user_since[0]}`}/>
             <CardText>{this.props.viewedUser.description}</CardText>
             <CardActions>
-              <FlatButton label='Goto' onTouchTap={this.handleGoto(`users/${this.props.params.id}`)}/>
             </CardActions>
           </Card>
         </MuiThemeProvider>
