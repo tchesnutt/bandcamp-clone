@@ -33,7 +33,7 @@ class NavBar extends React.Component {
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <Toolbar style={navbarStyle}>
               <ToolbarGroup>
-                <section className="logo-area" onClick={this.handleClick('explore')} >  
+                <section className="logo-area" >
                     <h1>S A N D C A M P</h1>
                 </section>
               </ToolbarGroup>
@@ -59,7 +59,7 @@ class NavBar extends React.Component {
       );
     } else {
       return(
-        <section className='nav'>
+        <section className='nav-logged-out'>
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <Toolbar style={navbarStyle}>
               <ToolbarGroup>

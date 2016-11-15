@@ -6,12 +6,19 @@
   background: $secondaryColor;
 }
 
+.nav-logged-out {
+  display: flex;
+  justify-content: flex-end;
+  background: $secondaryColor;
+}
+
 .right-nav-bar {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 10px;
 }
+
 
 .logo-area {
   text-decoration-color: $secondaryColor;
