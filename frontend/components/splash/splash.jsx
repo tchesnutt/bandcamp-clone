@@ -45,8 +45,8 @@ class Splash extends React.Component {
             columns={4}
             columnWidth={400}
             itemHeight={475}
-            gutterWidth={0}
-            gutterHeight={0}
+            gutterWidth={5}
+            gutterHeight={5}
             duration={800}
             easing="ease-out">
             {this.handleAlbums()}

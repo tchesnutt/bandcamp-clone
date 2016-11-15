@@ -80,7 +80,9 @@ class AlbumPage extends React.Component {
 
   displayAlbumArt(){
     if (this.props.albums[0] !== undefined) {
-      let displayAlbum = this.props.albums.filter((track) => (track.id == this.props.routeParams.albumId))
+      let displayAlbum = this.props.albums.filter((album) => (album.id == this.props.routeParams.albumId))
+      console.log(this.props);
+      console.log(displayAlbum);
       return (
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
           <Card initiallyExpanded={true} style={albumCardStyle}>

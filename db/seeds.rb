@@ -61,47 +61,47 @@ Album.create!([user_id:11,
 
 Track.create!([title:"海底",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904888/Macintosh_Plus_-_Floral_Shoppe_-_11_%E6%B5%B7%E5%BA%95_anev8i.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 11])
 Track.create!([title:"月",
-               track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904897/Macintosh_Plus_-_Floral_Shoppe_-_10_%E6%9C%88_llf7lk.mp3",
-               album_id: 10,
+               track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904897/Macintosh_Plus_-_Floral_Shoppe_-_11_%E6%9C%88_llf7lk.mp3",
+               album_id: 11,
                track_number: 10])
 Track.create!([title:"て",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904881/Macintosh_Plus_-_Floral_Shoppe_-_09_%E3%81%A6_mn4r4n.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 9])
 Track.create!([title:"外ギン Aviation",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904871/Macintosh_Plus_-_Floral_Shoppe_-_08_%E5%A4%96%E3%82%AE%E3%83%B3_Aviation_pkqbwo.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 8])
 Track.create!([title:"数学",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904894/Macintosh_Plus_-_Floral_Shoppe_-_07_%E6%95%B0%E5%AD%A6_wrozsr.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 7])
 Track.create!([title:"ECCOと悪寒ダイビング",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904890/Macintosh_Plus_-_Floral_Shoppe_-_06_ECCO%E3%81%A8%E6%82%AA%E5%AF%92%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0_jyr8hb.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 6])
 Track.create!([title:"地理",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904870/Macintosh_Plus_-_Floral_Shoppe_-_05_%E5%9C%B0%E7%90%86_fuhmre.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 5])
 Track.create!([title:"ライブラリ",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904858/Macintosh_Plus_-_Floral_Shoppe_-_04_%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA_mesndn.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 4])
 Track.create!([title:"花の専門店",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904866/Macintosh_Plus_-_Floral_Shoppe_-_03_%E8%8A%B1%E3%81%AE%E5%B0%82%E9%96%80%E5%BA%97_oyfvko.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 3])
 Track.create!([title:"リサフランク420 / 現代のコンピュー",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904893/Macintosh_Plus_-_Floral_Shoppe_-_02_%E3%83%AA%E3%82%B5%E3%83%95%E3%83%A9%E3%83%B3%E3%82%AF420_-_%E7%8F%BE%E4%BB%A3%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC_ov2vp3.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 2])
 Track.create!([title:"ブート",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904863/Macintosh_Plus_-_Floral_Shoppe_-_01_%E3%83%96%E3%83%BC%E3%83%88_bu8ssp.mp3",
-               album_id: 10,
+               album_id: 11,
                track_number: 1])
 Track.create!([title:"Behemoth (PERTURBATOR Remix)",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904374/GosT_-_Behemoth_-_13_Behemoth_Perturbator_remix_nyxuyy.mp3",
