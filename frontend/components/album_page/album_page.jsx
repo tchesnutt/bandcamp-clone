@@ -35,9 +35,15 @@ class AlbumPage extends React.Component {
   }
 
   displayTracks(){
+    let displayTracksObj = {};
+    let displayTracksArray = [];
     if (this.props.tracks.length > 0) {
+      this.props.tracks.forEach((track) =>{
+        displayTracksObj[track.track_number] = track
+      });
+      displayTracksArray = Object.keys(displayTracksObj).map((tr) => displayTracksObj[tr])
       return(
-        this.props.tracks.map( (track,idx) => (
+        displayTracksArray.map( (track,idx) => (
           <li key={idx} className="track-element">
             <IconButton
               onTouchTap={this.handleToPlayer(track)}>
@@ -81,8 +87,6 @@ class AlbumPage extends React.Component {
   displayAlbumArt(){
     if (this.props.albums[0] !== undefined) {
       let displayAlbum = this.props.albums.filter((album) => (album.id == this.props.routeParams.albumId))
-      console.log(this.props);
-      console.log(displayAlbum);
       return (
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
           <Card initiallyExpanded={true} style={albumCardStyle}>

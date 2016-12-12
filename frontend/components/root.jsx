@@ -30,7 +30,7 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={requestDataSource}>
-          <Route path="explore" component={SplashContainer}/>
+          <IndexRoute component={SplashContainer}/>
           <Route path="users/:id" component={UserContainer} onEnter={requestUserOnEnter}/>
           <Route path='users/:id/albums/:albumId' component={AlbumPageContainer} onEnter={requestAlbumOnEnter}/>
         </Route>
