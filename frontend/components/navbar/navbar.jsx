@@ -33,8 +33,8 @@ class NavBar extends React.Component {
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <Toolbar style={navbarStyle}>
               <ToolbarGroup>
-                <section className="logo-area" >
-                    <h1>S A N D C A M P</h1>
+                <section className="logo-area">
+                    <h1 onClick={handleClick("/")}>S A N D C A M P</h1>
                 </section>
               </ToolbarGroup>
               <ToolbarGroup>

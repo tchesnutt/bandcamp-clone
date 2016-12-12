@@ -14,7 +14,6 @@ const submitButtonStyle = {
 class EditUserForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       profile_pic_url: props.currentUser.profile_pic_url,
       description: props.currentUser.description,
