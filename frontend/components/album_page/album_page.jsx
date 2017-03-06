@@ -85,19 +85,23 @@ class AlbumPage extends React.Component {
   }
 
   displayAlbumArt(){
-    if (this.props.albums[0] !== undefined) {
-      let displayAlbum = this.props.albums.filter((album) => (album.id == this.props.routeParams.albumId))
-      return (
-        <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-          <Card initiallyExpanded={true} style={albumCardStyle}>
-            <CardMedia className='album-art-album-page'>
-              <img src={displayAlbum[0].cover_url}/>
-            </CardMedia>
-            <CardTitle title={displayAlbum[0].title}/>
-            <CardText>{displayAlbum[0].description}</CardText>
-          </Card>
-        </MuiThemeProvider>
-      )
+    if (this.props.viewedUser !== undefined) {
+      if(this.props.albums[0] !== undefined) {
+        let displayAlbum = this.props.albums.filter((album) => (album.id == this.props.routeParams.albumId))
+        if(displayAlbum.length !== 0){
+          return (
+            <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+              <Card initiallyExpanded={true} style={albumCardStyle}>
+                <CardMedia className='album-art-album-page'>
+                  <img src={displayAlbum[0].cover_url}/>
+                </CardMedia>
+                <CardTitle title={displayAlbum[0].title}/>
+                <CardText>{displayAlbum[0].description}</CardText>
+              </Card>
+            </MuiThemeProvider>
+          )
+        }
+      }
     } else {
       return (
         <h1>G O T N O T H I N G</h1>
