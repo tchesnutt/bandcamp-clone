@@ -21,12 +21,14 @@ class NavBar extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
+  
   handleClick(url) {
-    hashHistory.push(url)
+    if(hashHistory.getCurrentLocation().pathname !== url){
+      hashHistory.push(url);
+    }
   }
 
   render(){
-    const handleClick = url => () => hashHistory.push(url);
     if(this.props.state.session.currentUser) {
       return(
         <section className='nav'>
@@ -34,7 +36,7 @@ class NavBar extends React.Component {
             <Toolbar style={navbarStyle}>
               <ToolbarGroup>
                 <section className="logo-area">
-                    <h1 onClick={handleClick("/")}>S A N D C A M P</h1>
+                    <h1 onClick={() => this.handleClick("/")}>S A N D C A M P</h1>
                 </section>
               </ToolbarGroup>
               <ToolbarGroup>
@@ -46,7 +48,7 @@ class NavBar extends React.Component {
                   <AddAlbumFormContainer/>
                 </section>
                 <section className="right-nav-bar">
-                  <RaisedButton label={this.props.state.session.currentUser.username} onTouchTap={handleClick(`/users/${this.props.state.session.currentUser.id}`)}/>
+                  <RaisedButton label={this.props.state.session.currentUser.username} onTouchTap={() => this.handleClick(`/users/${this.props.state.session.currentUser.id}`)}/>
                 </section>
                 <section className="right-nav-bar">
                   <SessionButtonContainer/>
@@ -62,6 +64,11 @@ class NavBar extends React.Component {
         <section className='nav-logged-out'>
           <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <Toolbar style={navbarStyle}>
+              <ToolbarGroup>
+                <section className="logo-area">
+                    <h1 onClick={() =>this.handleClick("/")}>S A N D C A M P</h1>
+                </section>
+              </ToolbarGroup>
               <ToolbarGroup>
                 <section className="right-nav-bar">
                   <SessionButtonContainer/>
