@@ -18,7 +18,6 @@ const SessionMiddleware = ( { dispatch } ) => next => action => {
   const successCallback = user => {
     dispatch( closeAuthModal() );
     dispatch( receiveCurrentUser( user ) );
-    hashHistory.push('/explore');
   };
   const errorCallback = error => { dispatch( receiveErrors( error.responseJSON ) ) };
   switch ( action.type ) {
