@@ -21,7 +21,7 @@ class NavBar extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
-  
+
   handleClick(url) {
     if(hashHistory.getCurrentLocation().pathname !== url){
       hashHistory.push(url);
@@ -66,8 +66,11 @@ class NavBar extends React.Component {
             <Toolbar style={navbarStyle}>
               <ToolbarGroup>
                 <section className="logo-area">
-                    <h1 onClick={() =>this.handleClick("/")}>S A N D C A M P</h1>
+                    <h1 onClick={() => this.handleClick("/")}>S A N D C A M P</h1>
                 </section>
+              </ToolbarGroup>
+              <ToolbarGroup>
+                <SearchContainer/>
               </ToolbarGroup>
               <ToolbarGroup>
                 <section className="right-nav-bar">
