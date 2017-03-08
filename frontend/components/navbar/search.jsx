@@ -1,39 +1,46 @@
 import React from 'react';
-import Modal from 'react-modal';
+import { AutoComplete } from 'material-ui';
 import { hashHistory, Link } from 'react-router';
 
-const customStyles = {
-  overlay : {
-      backgroundColor: 'rgba(0, 0, 0, 0.9)',
-      padding: '30px'
-  }
-};
 
-
-class AlbumSearch extends React.Component {
+//Currently only searches over albums.
+class Search extends React.Component {
   constructor(props){
     super(props);
-    console.log(props);
     this.state = {
       query: undefined,
-      results: this.props.searchResults
+      results: this.props.searchResults,
+      dataSource: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.objectToArray = this.objectToArray.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-    this.setState({results: nextProps.results})
+    let nextData = this.objectToArray(nextProps.searchResults);
+    this.setState({dataSource: nextData, results: nextProps.searchResults});
   }
 
-  handleSubmit(text) {
-    let selectedAlbum = this.props.albumSearch.filter((album) => (album.title == text));
-    hashHistory.push(`/users/${selectedAlbum[0].user_id}/albums/${selectedAlbum[0].id}`);
+  objectToArray(obj) {
+    let data = Object.values(obj);
+    let result = [];
+    data.forEach((el) => {
+      result.push(el["title"]);
+    });
+    return result;
+  }
+
+  handleSubmit() {
+    this.setState({query: ""})
+    let id = Object.keys(this.state.results);
+    let selectedAlbum = this.state.results[id[0]];
+    hashHistory.push(`/users/${selectedAlbum.user_id}/albums/${selectedAlbum.id}`);
   }
 
   handleUpdate(text) {
-    this.setState({query: text});
+    this.setState({query: text})
+    this.props.sendQuery(text);
   }
 
   render() {
@@ -41,11 +48,14 @@ class AlbumSearch extends React.Component {
       <section className='album-search-bah'>
         <AutoComplete
           hintText="Search Albums"
+          searchText={this.state.query}
+          filter={AutoComplete.caseInsensitiveFilter}
           dataSource={this.state.dataSource}
+          onUpdateInput={this.handleUpdate}
           onNewRequest={this.handleSubmit}/>
       </section>
     )
   }
 }
 
-export default AlbumSearch;
+export default Search;

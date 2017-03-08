@@ -21,19 +21,19 @@ const TrackMiddleware = ( { dispatch } ) => next => action => {
   const trackErrors = errors => dispatch( receiveTrackErrors( errors.responseText ) );
   switch ( action.type ) {
   case FETCH_TRACK:
-    fetchTracks( action.trackId, successTrack, trackErrors )
-    return next( action )
+    fetchTracks( action.trackId, successTrack, trackErrors );
+    return next( action );
   case FETCH_TRACKS:
-    fetchTracks( action.albumId, successTracks, trackErrors )
-    return next( action )
+    fetchTracks( action.albumId, successTracks, trackErrors );
+    return next( action );
   case CREATE_TRACK:
-    createTrack( action.track, successTrack, trackErrors )
-    return next( action )
+    createTrack( action.track, successTrack, trackErrors );
+    return next( action );
   case UPDATE_TRACK:
-    updateTrack( action.track, successTrack, trackErrors )
-    return next( action )
+    updateTrack( action.track, successTrack, trackErrors );
+    return next( action );
   default:
-    return next( action )
+    return next( action );
   }
 };
 

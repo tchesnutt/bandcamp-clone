@@ -6,11 +6,11 @@ import AlbumMiddleware from './album_middleware';
 import SearchMiddleware from './search_middleware';
 
 const RootMiddleware = applyMiddleware(
+  SearchMiddleware,
   SessionMiddleware,
   TrackMiddleware,
   UserMiddleware,
-  AlbumMiddleware,
-  SearchMiddleware
+  AlbumMiddleware
 );
 
 export default RootMiddleware;

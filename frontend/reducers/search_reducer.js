@@ -11,8 +11,7 @@ const SearchReducer = ( state = _nullResult, action ) => {
   Object.freeze(state);
   switch ( action.type ) {
   case RECIEVE_SEARCH_RESULTS:
-    console.log(action);
-    return merge( {}, state, { currentUser: "findparams" } );
+    return merge( {}, { result: action.query_results } );
   default:
     return state;
   }
