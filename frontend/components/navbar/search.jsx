@@ -1,24 +1,30 @@
 import React from 'react';
-import { AutoComplete } from 'material-ui';
-import { hashHistory } from 'react-router';
+import Modal from 'react-modal';
+import { hashHistory, Link } from 'react-router';
+
+const customStyles = {
+  overlay : {
+      backgroundColor: 'rgba(0, 0, 0, 0.9)',
+      padding: '30px'
+  }
+};
 
 
 class AlbumSearch extends React.Component {
   constructor(props){
     super(props);
+    console.log(props);
     this.state = {
-      dataSource: [],
-      query: ""
+      query: undefined,
+      results: this.props.searchResults
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    let titles = nextProps.albumSearch.map((album, idx) => {
-      return album.title
-    });
-    this.setState({dataSource: titles})
+    console.log(nextProps);
+    this.setState({results: nextProps.results})
   }
 
   handleSubmit(text) {

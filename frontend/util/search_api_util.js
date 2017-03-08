@@ -1,9 +1,6 @@
-export const fetchSearchResults = ( string, success, error ) => {
+export const searchQuery = ( query, success) => {
   $.ajax( {
-    method: 'GET',
-    url: '/api/search',
-    data: { query: string },
-    success,
-    error
+    url: '/api/albums?search=${query}',
+    success
   } )
 };

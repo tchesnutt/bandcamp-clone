@@ -1,25 +1,24 @@
 import {
   FETCH_SEARCH_RESULTS,
-  RECIEVE_SEARCH_RESULTS,
   fetchSearchResults,
   recieveSearchResults
 }
 from '../actions/search_actions';
 import {
-  fetchSearchResults
+  searchQuery
 } from '../util/user_api_util';
 
+
 const SearchMiddleware = ( { dispatch } ) => next => action => {
+  const recieveSearch = albums => dispatch(recieveSearchResults(albums))
   switch ( action.type ) {
   case FETCH_SEARCH_RESULTS:
-    fetchUser( action.user_id, successUser, errorCallback );
-    return next( action );
-  case RECIEVE_SEARCH_RESULTS:
-    fetchUsers( action.searchParams, successUsers, errorCallback );
+    console.log(action);
+    searchQuery( action.query, recieveSearch);
     return next( action );
   default:
     return next( action );
   }
 };
 
-export default UserMiddleware;
+export default SearchMiddleware;

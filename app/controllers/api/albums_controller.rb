@@ -26,6 +26,15 @@ class Api::AlbumsController < ApplicationController
       else
         render json: ["Artist has no albums"], status: 404
       end
+    elsif params[:search]
+      if params[:search] == ""
+        @albums = []
+      else
+        @albums = Album.where([
+          'title ILIKE :query',
+          {query: "%#{params[:search]}%"}
+          ]).limit(5)
+      end
     else
       @albums = Album.all
       if @albums
