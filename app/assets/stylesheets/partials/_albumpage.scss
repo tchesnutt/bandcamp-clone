@@ -8,6 +8,8 @@
   font-size: 20px;
   font-style: oblique;
   text-decoration: underline;
+  padding-top: 7px;
+  padding-left: 20px;
 }
 
 .track-list {
@@ -15,7 +17,6 @@
 }
 
 .track-list-flex {
-  margin: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,4 +37,8 @@
 .whole-album-page {
   display: flex;
   justify-content: center;
+}
+
+.artist-info-album-page {
+  padding-top: 10px;
 }
