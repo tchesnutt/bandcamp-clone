@@ -21,7 +21,9 @@ const AlbumReducer = ( state = _nullAlbums, action ) => {
   case RECEIVE_ALBUMS:
     return merge( {}, state, { albums: action.albums } );
   case RECEIVE_ALL_ALBUMS:
-    return merge( {}, state, { albumSearch: action.albums } );
+    let newState = merge( {}, state, { albumSearch: action.albums } );
+    newState.albumSearch = newState.albumSearch.slice(1);
+    return newState;
   case RECEIVE_ALBUM_ERRORS:
     return merge( {}, state, { errors: action.errors } );
   default:
