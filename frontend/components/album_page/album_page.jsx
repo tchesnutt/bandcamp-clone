@@ -37,6 +37,7 @@ class AlbumPage extends React.Component {
   displayTracks(){
     let displayTracksObj = {};
     let displayTracksArray = [];
+    console.log(this.props);
     if (this.props.tracks.length > 0) {
       this.props.tracks.forEach((track) =>{
         displayTracksObj[track.track_number] = track

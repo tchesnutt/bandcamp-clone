@@ -47,7 +47,7 @@ class EditUserForm extends React.Component {
           <Dialog open={this.props.editUserModal}
                   onRequestClose={this.props.closeEditUserModal}
                   modal={false}
-                  title={'E D I T Y O U R D E T A I L S'}>
+                  title={'E D I T  Y O U R  D E T A I L S'}>
             <form onSubmit={this.handleSubmit}>
               <TextField type='text'
                          hintText='Change your Username'
@@ -65,7 +65,13 @@ class EditUserForm extends React.Component {
                          hintText='Edit User Description'
                          floatingLabelText='Description'/>
               <br/>
-              <UploadButton uploadImage={this.uploadImage}/>
+              <div>
+                <br/>
+                <h1>Change Profile Picture</h1>
+                <br/>
+                <UploadButton uploadImage={this.uploadImage}/>
+                <br/>
+              </div>
               <br/>
               <FlatButton label="Submit Edit" type='submit' style={submitButtonStyle} primary={true}/>
             </form>
