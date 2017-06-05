@@ -38,7 +38,7 @@ class AudioPlayer extends React.Component {
   }
 
   appear() {
-    if(this.state.currentSong === undefined){
+    if(this.state.currentSong.cover_url === ""){
       return ( {opacity: 0} );
     } else {
       return ( {opacity: 1} );

@@ -37,7 +37,6 @@ class AlbumPage extends React.Component {
   displayTracks(){
     let displayTracksObj = {};
     let displayTracksArray = [];
-    console.log(this.props);
     if (this.props.tracks.length > 0) {
       this.props.tracks.forEach((track) =>{
         displayTracksObj[track.track_number] = track
@@ -90,7 +89,6 @@ class AlbumPage extends React.Component {
       if(this.props.albums[this.props.params.albumId] !== undefined) {
         let albums = Object.entries(this.props.albums);
         let displayAlbum = albums.filter((album) => (album[0] == this.props.routeParams.albumId));
-        console.log(displayAlbum);
         if(displayAlbum.length !== 0){
           return (
             <section className='album-art-album-page'>
@@ -115,9 +113,7 @@ class AlbumPage extends React.Component {
   displayAlbums(){
     if(this.props.albums[this.props.params.albumId] !== undefined){
       let albums = Object.entries(this.props.albums);
-      console.log(albums);
       let otherAlbums = albums.filter((album) => (album[0] != this.props.routeParams.albumId && album[1].user_id === parseInt(this.props.routeParams.id)));
-      console.log(otherAlbums);
       return(
         otherAlbums.map((album, idx) => (
           <li className='other-albums' key={idx}>
