@@ -87,19 +87,21 @@ class AlbumPage extends React.Component {
 
   displayAlbumArt(){
     if (this.props.viewedUser !== undefined) {
-      if(this.props.albums[0] !== undefined) {
-        let displayAlbum = this.props.albums.filter((album) => (album.id == this.props.routeParams.albumId))
+      if(this.props.albums[this.props.params.albumId] !== undefined) {
+        let albums = Object.entries(this.props.albums);
+        let displayAlbum = albums.filter((album) => (album[0] == this.props.routeParams.albumId));
+        console.log(displayAlbum);
         if(displayAlbum.length !== 0){
           return (
-            <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-              <Card initiallyExpanded={true} style={albumCardStyle}>
-                <CardMedia className='album-art-album-page'>
-                  <img src={displayAlbum[0].cover_url}/>
-                </CardMedia>
-                <CardTitle title={displayAlbum[0].title}/>
-                <CardText>{displayAlbum[0].description}</CardText>
-              </Card>
-            </MuiThemeProvider>
+            <section className='album-art-album-page'>
+              <Album
+                id={displayAlbum[0][1].id}
+                userId={displayAlbum[0][1].user_id}
+                title={displayAlbum[0][1].title}
+                coverUrl={displayAlbum[0][1].cover_url}
+                createdAt={displayAlbum[0][1].created_at}
+                userId={displayAlbum[0][1].user_id}/>
+            </section>
           )
         }
       }
@@ -111,18 +113,22 @@ class AlbumPage extends React.Component {
   }
 
   displayAlbums(){
-    if(this.props.albums[0] !== undefined){
-      let otherAlbums = this.props.albums.filter((track) => (track.id != this.props.routeParams.albumId))
+    if(this.props.albums[this.props.params.albumId] !== undefined){
+      let albums = Object.entries(this.props.albums);
+      console.log(albums);
+      let otherAlbums = albums.filter((album) => (album[0] != this.props.routeParams.albumId && album[1].user_id === parseInt(this.props.routeParams.id)));
+      console.log(otherAlbums);
       return(
         otherAlbums.map((album, idx) => (
           <li className='other-albums' key={idx}>
             <Album
-            id={album.id}
-            userId={album.user_id}
-            title={album.title}
-            coverUrl={album.cover_url}
-            createdAt={album.created_at}
-            userId={album.user_id}/></li>
+            id={album[1].id}
+            userId={album[1].user_id}
+            title={album[1].title}
+            coverUrl={album[1].cover_url}
+            createdAt={album[1].created_at}
+            userId={album[1].user_id}/>
+          </li>
         ))
       )
     } else {

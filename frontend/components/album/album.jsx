@@ -15,13 +15,13 @@ const Album = ({id, userId, title, coverUrl, createdAt}) => {
   const handleClick = url => () => hashHistory.push(url);
 
   return (
-    <section className="album-card">
+    <section className="album-card" onClick={handleClick(`/users/${userId}/albums/${id}`)}>
       <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <Card>
           <CardMedia>
             <img src={coverUrl} width={'400px'}/>
           </CardMedia>
-          <CardTitle title={`${title}, ${createDate[0]}`} className="album-title-card" onTouchTap={handleClick(`/users/${userId}/albums/${id}`)}/>
+          <CardTitle title={`${title}, ${createDate[0]}`} className="album-title-card"/>
         </Card>
       </MuiThemeProvider>
     </section>
