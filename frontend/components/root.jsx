@@ -44,6 +44,11 @@ const Root = ({ store }) => {
           <Route path="users/:id" component={UserContainer} onEnter={requestUserOnEnter}/>
           <Route path='users/:id/albums/:albumId' component={AlbumPageContainer} onEnter={requestAlbumOnEnter}/>
         </Route>
+        <Route path="/&utm_source=personalsite" component={App} onEnter={requestDataSource}>
+          <IndexRoute component={SplashContainer}/>
+          <Route path="users/:id" component={UserContainer} onEnter={requestUserOnEnter}/>
+          <Route path='users/:id/albums/:albumId' component={AlbumPageContainer} onEnter={requestAlbumOnEnter}/>
+        </Route>
       </Router>
     </Provider>
   );
