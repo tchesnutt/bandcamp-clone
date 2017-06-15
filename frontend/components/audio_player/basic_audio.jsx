@@ -6,10 +6,11 @@ class AudioPlayer extends React.Component {
     super(props);
     this.state = {
       currentSong: this.props.currentSong,
-      playing: this.props.playing
+      playing: this.props.playing,
+      duration: null,
+      currentTime: null,
     };
     this.togglePlay = this.togglePlay.bind(this);
-    this.renderPlayer = this.renderPlayer.bind(this);
     this.renderPlayPause = this.renderPlayPause.bind(this);
     this.updatePlaybar = this.updatePlaybar.bind(this);
     this.appear = this.appear.bind(this);
@@ -19,27 +20,13 @@ class AudioPlayer extends React.Component {
     this.setState({currentSong: nextProps.currentSong, playing: nextProps.playing})
   }
 
-  renderPlayer() {
-    if (this.state.currentSong !== undefined){
-      return (
-        <ReactPlayer
-          url={this.state.currentSong.track_url}
-          playing={this.state.playing}
-          hidden={true}
-          onProgress={this.updatePlaybar}/>
-      );
-    } else {
-      return (<section></section>);
-    }
-  }
-
-  updatePlaybar({played}) {
-    this.setState({progress: played * 100});
+  updatePlaybar({ played }) {
+    this.setState({progress: played * 100 });
   }
 
   appear() {
     if(this.state.currentSong.cover_url === ""){
-      return ( {opacity: 0} );
+      return ( {opacity: 1} );
     } else {
       return ( {opacity: 1} );
     }
@@ -67,10 +54,35 @@ class AudioPlayer extends React.Component {
     }
   }
 
+  handleTime(){
+    if(this.player !== undefined){
+      let curMin, curSec, durMin, durSec;
+      this.state.duration = this.player.getDuration();
+      this.state.currentTime = this.player.getCurrentTime();
+      durMin = Math.floor(this.state.duration / 60);
+      curMin = Math.floor(this.state.currentTime / 60);
+      durSec = Math.floor(this.state.duration % 60);
+      curSec = Math.floor(this.state.currentTime % 60);
+      if(durSec < 10) {durSec ='0' + durSec.toString()}
+      if(curSec < 10) {curSec ='0' + curSec.toString()}
+      return(
+        `${curMin}:${curSec} / ${durMin}:${durSec}`
+      )
+    }
+  }
+
   render() {
-    if(this.state.currentSong !== undefined) {
+    if(this.state.currentSong !== undefined){
       return (
         <section className="audio-player" style={this.appear()}>
+          <ReactPlayer
+            ref={player => {
+              this.player = player;
+            }}
+            url={ this.state.currentSong.track_url }
+            playing={ this.state.playing }
+            onProgress={ this.updatePlaybar }
+            onError={e => console.log('onError', e)}/>
           <section className='progress-bar'>
             <section className='audio-progress'
               style={{width: `${this.state.progress}%`}}>
@@ -81,14 +93,14 @@ class AudioPlayer extends React.Component {
               {this.renderPlayPause()}
             </span>
             <h1 className="player-song-title">{this.props.currentSong.title}</h1>
+            <h1 className="time">{this.handleTime()}</h1>
           </section>
-          {this.renderPlayer()}
         </section>
       );
     } else {
-      return (
+      return(
         <section></section>
-      );
+      )
     }
   }
 }

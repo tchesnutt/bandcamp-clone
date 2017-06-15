@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import {Dialog, FlatButton, RaisedButton, TextField} from 'material-ui';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const buttonStyle = {
     width: '100%',
@@ -69,30 +66,28 @@ class SessionForm extends React.Component {
         }
         return (
             <section className='session-form'>
-                <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-                    <Dialog open={this.props.authModalOpen} onRequestClose={this.props.closeAuthModal} modal={false} title={buttonName}>
-                        <section className="login-form-container">
-                            <form onSubmit={this.handleSubmit} className="login-form-box">
-                                <section className="login-form">
-                                    <TextField type="text" hintText="Username" floatingLabelText="Username" value={this.state.username} onChange={this.update("username")} className="login-input" fullWidth={true} errorText={this.props.errors.username === undefined
-                                        ? ""
-                                        : `username ${this.props.errors.username.join(", ")}`}/>
-                                    <br/>
-                                    <TextField type="password" hintText="Password" floatingLabelText="Password" value={this.state.password} onChange={this.update("password")} className="login-input" fullWidth={true} errorText={this.props.errors.password === undefined
-                                        ? ""
-                                        : this.props.errors.password.join(", ")}/>
-                                    <br/>
-                                    <FlatButton label="Submit" type="submit" style={buttonStyle} primary={true}/>
-                                    <br/>
-                                </section>
-                            </form>
-                        </section>
-                        <section className="bottom-row-login-form">
-                            {guestLogin}
-                            <FlatButton label={linkText} secondary={true} onTouchTap={this.handleToggleFormType}/>
-                        </section>
-                    </Dialog>
-                </MuiThemeProvider>
+              <Dialog open={this.props.authModalOpen} onRequestClose={this.props.closeAuthModal} modal={false} title={buttonName}>
+                <section className="login-form-container">
+                  <form onSubmit={this.handleSubmit} className="login-form-box">
+                    <section className="login-form">
+                      <TextField type="text" hintText="Username" floatingLabelText="Username" value={this.state.username} onChange={this.update("username")} className="login-input" fullWidth={true} errorText={this.props.errors.username === undefined
+                        ? ""
+                        : `username ${this.props.errors.username.join(", ")}`}/>
+                      <br/>
+                      <TextField type="password" hintText="Password" floatingLabelText="Password" value={this.state.password} onChange={this.update("password")} className="login-input" fullWidth={true} errorText={this.props.errors.password === undefined
+                        ? ""
+                        : this.props.errors.password.join(", ")}/>
+                      <br/>
+                      <FlatButton label="Submit" type="submit" style={buttonStyle} primary={true}/>
+                      <br/>
+                    </section>
+                  </form>
+                </section>
+                <section className="bottom-row-login-form">
+                  {guestLogin}
+                  <FlatButton label={linkText} secondary={true} onTouchTap={this.handleToggleFormType}/>
+                </section>
+              </Dialog>
             </section>
         );
     }

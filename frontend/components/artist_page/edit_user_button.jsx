@@ -1,8 +1,5 @@
 import React from 'react';
 import { RaisedButton } from 'material-ui';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { hashHistory } from 'react-router';
 
 class EditUserButton extends React.Component {
@@ -17,11 +14,9 @@ class EditUserButton extends React.Component {
     if (this.loggedIn.id == pageId) {
       return (
         <section className="session">
-          <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-            <RaisedButton label="Edit User"
-              onTouchTap={this.props.openEditUserModal}>
-            </RaisedButton>
-          </MuiThemeProvider>
+          <RaisedButton label="Edit User"
+            onTouchTap={this.props.openEditUserModal}>
+          </RaisedButton>
         </section>
       );
     } else {

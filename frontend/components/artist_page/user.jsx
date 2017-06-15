@@ -1,17 +1,10 @@
 import React from 'react';
+import { CSSGrid, measureItems, makeResponsive, layout} from 'react-stonecutter';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText, Paper} from 'material-ui';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Album from '../album/album';
 import EditUserButtonContainer from './edit_user_button_container';
 import EditUserFormContainer from './edit_user_form_container';
-import { CSSGrid, measureItems, makeResponsive, layout} from 'react-stonecutter';
 
-
-const myThemes = getMuiTheme ({
-  fontFamily: 'Titillium Web',
-});
 
 class UserDetail extends React.Component {
   constructor(props) {
@@ -59,15 +52,13 @@ class UserDetail extends React.Component {
     return (
       <section className="user-page" >
           <section className="user-sidebar">
-            <MuiThemeProvider muiTheme={myThemes}>
-              <Card initiallyExpanded={true}>
-                <CardMedia className="user-profile-picture"><img src={this.user.profile_pic_url}/></CardMedia>
-                <CardTitle title={this.user.username} subtitle={`Since: ${this.user_since[0]}`}/>
-                <CardText>{this.user.description}</CardText>
-                <EditUserButtonContainer />
-                <EditUserFormContainer />
-              </Card>
-            </MuiThemeProvider>
+            <Card initiallyExpanded={true}>
+              <CardMedia className="user-profile-picture"><img src={this.user.profile_pic_url}/></CardMedia>
+              <CardTitle title={this.user.username} subtitle={`Since: ${this.user_since[0]}`}/>
+              <CardText>{this.user.description}</CardText>
+              <EditUserButtonContainer />
+              <EditUserFormContainer />
+            </Card>
           </section>
           <section className="user-discography">
             <Grid

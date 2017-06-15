@@ -1,10 +1,7 @@
 import React from 'react';
-import { Paper, Card, CardMedia, CardActions, FlatButton,  CardTitle, CardText, IconButton, red600, PlayArrow, lightGreenA700, FontIcon } from 'material-ui';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Album from '../album/album';
 import { hashHistory } from 'react-router';
+import { Paper, Card, CardMedia, CardActions, FlatButton,  CardTitle, CardText, IconButton, red600, PlayArrow, lightGreenA700, FontIcon } from 'material-ui';
+import Album from '../album/album';
 
 const cardStyle = {
   width: '300px',
@@ -67,15 +64,13 @@ class AlbumPage extends React.Component {
     if (this.props.viewedUser !== undefined) {
       let user_since = this.props.viewedUser.created_at.split("-");
       return (
-        <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-          <Card containerStyle={cardStyle} initiallyExpanded={true}>
-            <CardMedia className="user-profile-picture"><img src={this.props.viewedUser.profile_pic_url}/></CardMedia>
-            <CardTitle title={this.props.viewedUser.username} subtitle={`Since: ${user_since[0]}`}/>
-            <CardText>{this.props.viewedUser.description}</CardText>
-            <CardActions>
-            </CardActions>
-          </Card>
-        </MuiThemeProvider>
+        <Card containerStyle={cardStyle} initiallyExpanded={true}>
+          <CardMedia className="user-profile-picture"><img src={this.props.viewedUser.profile_pic_url}/></CardMedia>
+          <CardTitle title={this.props.viewedUser.username} subtitle={`Since: ${user_since[0]}`}/>
+          <CardText>{this.props.viewedUser.description}</CardText>
+          <CardActions>
+          </CardActions>
+        </Card>
       )
     } else {
       return (
@@ -139,16 +134,14 @@ class AlbumPage extends React.Component {
     return(
         <section className='whole-album-page'>
           <section className='track-list'>
-            <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-              <Paper style={cardStyle} zDepth={1}>
-                <section className='track-list-flex'>
-                  <h3 className='track-list-title'>Tracks</h3>
-                  <ul>
-                    {this.displayTracks()}
-                  </ul>
-                </section>
-              </Paper>
-            </MuiThemeProvider>
+            <Paper style={cardStyle} zDepth={1}>
+              <section className='track-list-flex'>
+                <h3 className='track-list-title'>Tracks</h3>
+                <ul>
+                  {this.displayTracks()}
+                </ul>
+              </section>
+            </Paper>
           </section>
           <section className='album-cover'>
             {this.displayAlbumArt()}

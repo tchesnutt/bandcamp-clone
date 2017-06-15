@@ -21,7 +21,7 @@
 
 
 .logo-area {
-  text-decoration-color: $secondaryColor;
+  text-decoration-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +29,7 @@
 }
 
 .logo-area > h1 {
-  color: $secondaryColor;
+  color: black;
   font-size: 30px;
 }
 

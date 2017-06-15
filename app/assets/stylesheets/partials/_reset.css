@@ -21,11 +21,7 @@ time, mark, audio, video {
 }
 
 body {
-	background-image: url("http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478892811/slashsplash_gttlzi.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	background-size: cover;
+	background-color: #eef2f3;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,

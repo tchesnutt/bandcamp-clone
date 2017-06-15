@@ -1,10 +1,7 @@
 import React from 'react';
-import { Dialog, FlatButton, RaisedButton, TextField, List, ListItem, Card, CardMedia, CardTitle, CardHeader, CardActions, FontIcon, red600 } from 'material-ui';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { merge } from 'lodash';
 import UploadButton from '../cloud';
+import { merge } from 'lodash';
+import { Dialog, FlatButton, RaisedButton, TextField, List, ListItem, Card, CardMedia, CardTitle, CardHeader, CardActions, FontIcon, red600 } from 'material-ui';
 
 
 const submitButtonStyle = {
@@ -43,40 +40,38 @@ class EditUserForm extends React.Component {
   render(){
     return(
       <section className='edit-user-form'>
-        <MuiThemeProvider muiTHeme={getMuiTheme(lightBaseTheme)}>
-          <Dialog open={this.props.editUserModal}
-                  onRequestClose={this.props.closeEditUserModal}
-                  modal={false}
-                  title={'E D I T  Y O U R  D E T A I L S'}>
-            <form onSubmit={this.handleSubmit}>
-              <TextField type='text'
-                         hintText='Change your Username'
-                         floatingLabelText='Username'
-                         fullWidth={true}
-                         onChange={this.update("username")}
-                         errorText={this.props.username === undefined ? "" : `Username ${this.props.username.join(", ")}`}/>
+        <Dialog open={this.props.editUserModal}
+                onRequestClose={this.props.closeEditUserModal}
+                modal={false}
+                title={'E D I T  Y O U R  D E T A I L S'}>
+          <form onSubmit={this.handleSubmit}>
+            <TextField type='text'
+                       hintText='Change your Username'
+                       floatingLabelText='Username'
+                       fullWidth={true}
+                       onChange={this.update("username")}
+                       errorText={this.props.username === undefined ? "" : `Username ${this.props.username.join(", ")}`}/>
+            <br/>
+            <TextField type='text'
+                       rows={4}
+                       rowsMax={8}
+                       fullWidth={true}
+                       multiLine={true}
+                       onChange={this.update("description")}
+                       hintText='Edit User Description'
+                       floatingLabelText='Description'/>
+            <br/>
+            <div>
               <br/>
-              <TextField type='text'
-                         rows={4}
-                         rowsMax={8}
-                         fullWidth={true}
-                         multiLine={true}
-                         onChange={this.update("description")}
-                         hintText='Edit User Description'
-                         floatingLabelText='Description'/>
+              <h1>Change Profile Picture</h1>
               <br/>
-              <div>
-                <br/>
-                <h1>Change Profile Picture</h1>
-                <br/>
-                <UploadButton uploadImage={this.uploadImage}/>
-                <br/>
-              </div>
+              <UploadButton uploadImage={this.uploadImage}/>
               <br/>
-              <FlatButton label="Submit Edit" type='submit' style={submitButtonStyle} primary={true}/>
-            </form>
-          </Dialog>
-        </MuiThemeProvider>
+            </div>
+            <br/>
+            <FlatButton label="Submit Edit" type='submit' style={submitButtonStyle} primary={true}/>
+          </form>
+        </Dialog>
       </section>
     )
   }

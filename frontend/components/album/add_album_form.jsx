@@ -1,8 +1,5 @@
 import React from 'react';
 import {Dialog, FlatButton, RaisedButton, TextField, List, ListItem, Card, CardMedia, CardTitle, CardHeader, CardActions} from 'material-ui';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import UploadButton from '../cloud';
 import { merge } from 'lodash';
 import { red600 } from 'material-ui/styles/colors';
@@ -115,58 +112,57 @@ class AlbumForm extends React.Component {
   render() {
     return(
       <section className='add-album-form'>
-        <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-          <Dialog open={this.props.addAlbumModal}
-                  onRequestClose={this.props.closeAddAlbumModal}
-                  modal={false}
-                  title='Create an Album'>
-            <section className='album-form-container'>
-            {this.displayTracks()}
-            <form onSubmit={this.handleTrackSubmit}>
-              <TextField type='text'
-                         hintText='Add Track Title'
-                         floatingLabelText='Track Title'
-                         onChange={this.trackUpdate('title')}
-                         fullWidth={true}
-                         errorText={this.props.errors.title === undefined ? "" : `title ${this.props.errors.title.join(", ")}`}/>
-              <UploadButton uploadImage={this.uploadSong}/>
-              <FlatButton label="Submit Track" type='submit' style={submitButtonStyle} primary={true}/>
-            </form>
-            <form onSubmit={this.handleSubmit}>
-              <TextField type='text'
-                         hintText='Add Album Title'
-                         floatingLabelText='Title'
-                         fullWidth={true}
-                         onChange={this.update("title")}
-                         errorText={this.props.errors.title === undefined ? "" : `title ${this.props.errors.title.join(", ")}`}/>
-              <br/>
-              <TextField type='text'
-                         rows={4}
-                         rowsMax={8}
-                         fullWidth={true}
-                         multiLine={true}
-                         onChange={this.update("description")}
-                         hintText='Add Album Description'
-                         floatingLabelText='Description'
-                         errorText={this.props.errors.description === undefined ? "" : `description ${this.props.errors.description.join(", ")}`}/>
-              <br/>
-              <Card>
-                <CardHeader title="Add Album Cover"
-                            actAsExpander={true}
-                            showExpandableButton={true}/>
-                <CardMedia>
-                </CardMedia>
-                <CardActions>
-                  <UploadButton uploadImage={this.uploadImage}/>
-                </CardActions>
-              </Card>
-              <br/>
-              <br/>
-              <FlatButton label="Submit Album" type='submit' style={submitButtonStyle} primary={true}/>
-            </form>
-          </section>
-          </Dialog>
-        </MuiThemeProvider>
+        <Dialog open={this.props.addAlbumModal}
+                onRequestClose={this.props.closeAddAlbumModal}
+                modal={false}
+                title='Create an Album'
+                autoScrollBodyContent={true}>
+          <section className='album-form-container'>
+          {this.displayTracks()}
+          <form onSubmit={this.handleTrackSubmit}>
+            <TextField type='text'
+                       hintText='Add Track Title'
+                       floatingLabelText='Track Title'
+                       onChange={this.trackUpdate('title')}
+                       fullWidth={true}
+                       errorText={this.props.errors.title === undefined ? "" : `title ${this.props.errors.title.join(", ")}`}/>
+            <UploadButton uploadImage={this.uploadSong}/>
+            <FlatButton label="Submit Track" type='submit' style={submitButtonStyle} primary={true}/>
+          </form>
+          <form onSubmit={this.handleSubmit}>
+            <TextField type='text'
+                       hintText='Add Album Title'
+                       floatingLabelText='Title'
+                       fullWidth={true}
+                       onChange={this.update("title")}
+                       errorText={this.props.errors.title === undefined ? "" : `title ${this.props.errors.title.join(", ")}`}/>
+            <br/>
+            <TextField type='text'
+                       rows={4}
+                       rowsMax={8}
+                       fullWidth={true}
+                       multiLine={true}
+                       onChange={this.update("description")}
+                       hintText='Add Album Description'
+                       floatingLabelText='Description'
+                       errorText={this.props.errors.description === undefined ? "" : `description ${this.props.errors.description.join(", ")}`}/>
+            <br/>
+            <Card>
+              <CardHeader title="Add Album Cover"
+                          actAsExpander={true}
+                          showExpandableButton={true}/>
+              <CardMedia>
+              </CardMedia>
+              <CardActions>
+                <UploadButton uploadImage={this.uploadImage}/>
+              </CardActions>
+            </Card>
+            <br/>
+            <br/>
+            <FlatButton label="Submit Album" type='submit' style={submitButtonStyle} primary={true}/>
+          </form>
+        </section>
+        </Dialog>
       </section>
     )
   }
