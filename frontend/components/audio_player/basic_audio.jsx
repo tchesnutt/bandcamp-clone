@@ -2,6 +2,7 @@ import React from 'react';
 import ReactPlayer from 'react-player';
 
 // TODO: add artist name and album name to currently playing
+// TODO: better trasition for player appearing
 class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);

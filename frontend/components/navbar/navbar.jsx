@@ -33,6 +33,7 @@ class NavBar extends React.Component {
           <Toolbar style={navbarStyle}>
             <ToolbarGroup>
               <section className="logo-area">
+                  <div className="logo" onClick={() => this.handleClick("/")}/>
                   <h1 onClick={() => this.handleClick("/")}>S A N D C A M P</h1>
               </section>
             </ToolbarGroup>
@@ -61,6 +62,7 @@ class NavBar extends React.Component {
           <Toolbar style={navbarStyle}>
             <ToolbarGroup>
               <section className="logo-area">
+                  <div className="logo"/>
                   <h1 onClick={() => this.handleClick("/")}>S A N D C A M P</h1>
               </section>
             </ToolbarGroup>

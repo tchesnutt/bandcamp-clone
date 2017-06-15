@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   background: $secondaryColor;
-  -webkit-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.25)  
+  -webkit-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.25)
 }
 
 .nav-logged-out {
@@ -24,7 +24,7 @@
 .logo-area {
   text-decoration-color: black;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   cursor: pointer;
 }
@@ -37,4 +37,15 @@
 .bottom-row-login-form {
   display: flex;
   justify-content: space-between;
+}
+
+.logo {
+  margin-top: 5px;
+  margin-right: 3px;
+	width: 30px;
+	height: 22px;
+	-webkit-transform: skew(-25deg);
+	   -moz-transform: skew(20deg);
+	     -o-transform: skew(20deg);
+	background: $primaryColor;
 }
