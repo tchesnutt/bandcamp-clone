@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 
+// TODO: add artist name and album name to currently playing
 class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);
@@ -9,6 +10,7 @@ class AudioPlayer extends React.Component {
       playing: this.props.playing,
       duration: null,
       currentTime: null,
+      progress: 0
     };
     this.togglePlay = this.togglePlay.bind(this);
     this.renderPlayPause = this.renderPlayPause.bind(this);
@@ -26,7 +28,7 @@ class AudioPlayer extends React.Component {
 
   appear() {
     if(this.state.currentSong.cover_url === ""){
-      return ( {opacity: 1} );
+      return ( {opacity: 0} );
     } else {
       return ( {opacity: 1} );
     }
@@ -82,6 +84,7 @@ class AudioPlayer extends React.Component {
             url={ this.state.currentSong.track_url }
             playing={ this.state.playing }
             onProgress={ this.updatePlaybar }
+            hidden={true}
             onError={e => console.log('onError', e)}/>
           <section className='progress-bar'>
             <section className='audio-progress'
@@ -89,10 +92,10 @@ class AudioPlayer extends React.Component {
             </section>
           </section>
           <section className='bottom-part-audio-player'>
+            <h1 className="player-song-title">{this.props.currentSong.title}</h1>
             <span className="audio-buttons">
               {this.renderPlayPause()}
             </span>
-            <h1 className="player-song-title">{this.props.currentSong.title}</h1>
             <h1 className="time">{this.handleTime()}</h1>
           </section>
         </section>
