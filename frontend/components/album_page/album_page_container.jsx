@@ -6,11 +6,13 @@ import { fetchTracks } from '../../actions/track_actions';
 const mapStateToProps = (state, ownProps) => ({
   tracks: state.tracks.tracks,
   albums: state.albums.albums,
-  viewedUser: state.viewUsers[ownProps.routeParams.id]
+  viewedUser: state.viewUsers[ownProps.routeParams.id],
+  currentSongId: state.currentSong.id,
+  playing: state.playing.playing
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  receivePlaying: () => dispatch(receivePlaying()),
+  togglePlaying: () => dispatch(receivePlaying()),
   receiveSong: (track) => dispatch(receiveSong(track))
 })
 

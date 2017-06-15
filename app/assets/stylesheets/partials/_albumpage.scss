@@ -6,21 +6,43 @@
   margin-bottom: 5px;
 }
 
+.track-element:hover svg {
+  fill: #0097a7 !important;
+}
+
+.track-number {
+  margin-right: 3px;
+}
+
+.track-name:hover {
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+.track-name-playing {
+  font-weight: bold;
+}
+
 .track-list-title {
   font-size: 20px;
   font-style: oblique;
-  padding-top: 7px;
+  padding-top: 12px;
   padding-left: 48px;
 }
 
 .track-list {
-  margin: 20px;
+  margin-top: 20px;
+  margin-right: 10px;
 }
 
 .track-list-flex {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.track-list-flex ul {
+  margin-bottom: 12px;
 }
 
 .album-art-album-page {

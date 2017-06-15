@@ -22,12 +22,27 @@ class AlbumPage extends React.Component {
     this.displayAlbumArt = this.displayAlbumArt.bind(this);
     this.displayAlbums = this.displayAlbums.bind(this);
     this.handleGoto = this.handleGoto.bind(this);
+    this.playOrPause = this.playOrPause.bind(this);
   }
 
   handleToPlayer(track) {
-    return e =>{
-      this.props.receiveSong(track)
-      this.props.receivePlaying();
+    if(this.props.playing && track.id === this.props.currentSongId){
+      return e => (this.props.togglePlaying());
+    } else if (this.props.playing && track.id !== this.props.currentSongId) {
+       return e => (this.props.receiveSong(track));
+    } else {
+      return e => {
+        this.props.receiveSong(track)
+        this.props.togglePlaying()
+      }
+    }
+  }
+
+  playOrPause(trackId) {
+    if(trackId === this.props.currentSongId && this.props.playing){
+      return('pause')
+    } else {
+      return('play_arrow')
     }
   }
 
@@ -42,11 +57,11 @@ class AlbumPage extends React.Component {
       return(
         displayTracksArray.map( (track,idx) => (
           <li key={idx} className="track-element">
-            <IconButton
-              onTouchTap={this.handleToPlayer(track)}>
-              <FontIcon className="material-icons" color={lightGreenA700}>play_arrow</FontIcon>
+            <IconButton style={{color: '#12c1d7'}}>
+              <FontIcon className="material-icons" onTouchTap={this.handleToPlayer(track)}>{this.playOrPause(track.id)}</FontIcon>
             </IconButton>
-            <h4 className='track-number'>{track.track_number}.  {track.title}</h4>
+            <h4 className='track-number'>{track.track_number}.</h4>
+            <h4 className='track-name' onClick={this.handleToPlayer(track)}> {track.title}</h4>
           </li>
         )));
     } else {
