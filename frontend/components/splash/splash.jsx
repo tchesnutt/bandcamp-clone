@@ -35,22 +35,26 @@ class Splash extends React.Component {
       minPadding: 100,
       measureImages: true
     });
+    // <h1>Discover</h1>
     return (
       <section className='splash-page'>
         <section className='splash-image'>
+          <img src='http://res.cloudinary.com/dxtvmwxxb/image/upload/v1497751480/splash_btkeyw.gif'/>
         </section>
         <section className='explore-music'>
-          <Grid
-            component="ul"
-            columns={4}
-            columnWidth={400}
-            itemHeight={475}
-            gutterWidth={5}
-            gutterHeight={5}
-            duration={800}
-            easing="ease-out">
-            {this.handleAlbums()}
-          </Grid>
+          <section className='grid'>
+            <Grid
+              component="ul"
+              columns={4}
+              columnWidth={400}
+              itemHeight={475}
+              gutterWidth={20}
+              gutterHeight={20}
+              duration={800}
+              easing="ease-out">
+              {this.handleAlbums()}
+            </Grid>
+          </section>
         </section>
       </section>
 
