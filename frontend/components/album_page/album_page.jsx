@@ -4,8 +4,7 @@ import { Paper, Card, CardMedia, CardActions, FlatButton,  CardTitle, CardText, 
 import Album from '../album/album';
 
 const cardStyle = {
-  width: '300px',
-  height: 'auto',
+  width: '350px',
 };
 
 const albumCardStyle = {
