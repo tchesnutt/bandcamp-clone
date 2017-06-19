@@ -17,47 +17,58 @@ User.create!([
 Album.create!([user_id:13,
               title:"Blood Club",
               cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478898921/cover_be6a6g.jpg",
-              description: ""])
+              description: "",
+              artist_name: "GOST"])
 Album.create!([user_id:2,
               title:"Blank Banshee 0",
               cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478900183/Blank_Banshee_-_Blank_Banshee_0_-_cover_q5bocf.png",
-              description: ""])
+              description: "",
+              artist_name: "Blank Banshee"])
 Album.create!([user_id:3,
               title:"EP I",
               cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478901866/cover_yf7usw.jpg",
-              description: ""])
+              description: "",
+              artist_name: "Carpenter Brut"])
 Album.create!([user_id:9,
               title:"Non Paradisi",
               cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478901871/cover_xwkotl.jpg",
-              description: ""])
+              description: "",
+              artist_name: "GOST"])
 Album.create!([user_id:4,
               title:"Against the Weald",
               cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478901979/cover_vjghmf.jpg",
-              description: ""])
+              description: "",
+              artist_name: "Ifing"])
 Album.create!([user_id:5,
               title:"Sorni Nai",
               cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478902437/cover_oxkqh9.jpg",
-              description: ""])
+              description: "",
+              artist_name: "Kauan"])
 Album.create!([user_id:7,
               title:"Transhumanism",
               cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478902733/cover_wkujcs.jpg",
-              description: ""])
+              description: "",
+              artist_name: "Tommy '86"])
 Album.create!([user_id:8,
               title:"System Delight",
               cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478903252/VAPERROR_-_System_Delight_-_cover_vqf1yr.png",
-              description: ""])
+              description: "",
+              artist_name: "V A P E R R O R"])
 Album.create!([user_id:10,
               title:"Escape Velocity",
               cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478903919/cover_vvzcdr.jpg",
-              description: ""])
+              description: "",
+              artist_name:"Dynatron"])
 Album.create!([user_id:9,
                 title:"Behemoth",
                 cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478904802/cover_czxc4x.jpg",
-                description: ""])
+                description: "",
+                artist_name:"GOST"])
 Album.create!([user_id:11,
                 title:"Floral Shoppe",
                 cover_url:"http://res.cloudinary.com/dxtvmwxxb/image/upload/v1478905340/Floral_Shoppe_Alt_Cover_mijqx0.jpg",
-                description: ""])
+                description: "",
+                artist_name:"Macintosh Plus"])
 
 Track.create!([title:"海底",
                track_url:"http://res.cloudinary.com/dxtvmwxxb/video/upload/v1478904888/Macintosh_Plus_-_Floral_Shoppe_-_11_%E6%B5%B7%E5%BA%95_anev8i.mp3",

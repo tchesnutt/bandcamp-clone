@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20161108041720) do
     t.integer  "user_id",     null: false
     t.string   "title",       null: false
     t.string   "cover_url",   null: false
+    t.string   "artist_name", null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

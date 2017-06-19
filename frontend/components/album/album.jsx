@@ -4,7 +4,7 @@ import { withRouter, hashHistory } from 'react-router';
 
 
 
-const Album = ({id, userId, title, coverUrl, createdAt, containerStyle}) => {
+const Album = ({id, userId, title, coverUrl, createdAt, containerStyle, artistName, titleStyle, subtitleStyle}) => {
   let createDate;
   createDate = createdAt.split('-');
 
@@ -12,11 +12,16 @@ const Album = ({id, userId, title, coverUrl, createdAt, containerStyle}) => {
 
   return (
     <section className="album-card" onClick={handleClick(`/users/${userId}/albums/${id}`)}>
-      <Card>
+      <Card style={containerStyle}>
         <CardMedia>
-          <img src={coverUrl} width={'400px'}/>
+          <img src={coverUrl} width={'100%'}/>
         </CardMedia>
-        <CardTitle title={`${title}, ${createDate[0]}`} className="album-title-card"/>
+        <CardTitle
+          title={`${title}, ${createDate[0]}`}
+          titleStyle={titleStyle}
+          subtitle={artistName}
+          subtitleStyle={subtitleStyle}
+          className="album-title-card"/>
       </Card>
     </section>
   )
