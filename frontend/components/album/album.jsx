@@ -4,12 +4,8 @@ import { withRouter, hashHistory } from 'react-router';
 
 
 
-const Album = ({id, userId, title, coverUrl, createdAt, containerStyle, artistName, titleStyle, subtitleStyle}) => {
-  let createDate;
-  createDate = createdAt.split('-');
-
+const Album = ({id, userId, title, coverUrl, containerStyle, artistName, titleStyle, subtitleStyle}) => {
   const handleClick = url => () => hashHistory.push(url);
-
   return (
     <section className="album-card" onClick={handleClick(`/users/${userId}/albums/${id}`)}>
       <Card style={containerStyle}>
@@ -17,7 +13,7 @@ const Album = ({id, userId, title, coverUrl, createdAt, containerStyle, artistNa
           <img src={coverUrl} width={'100%'}/>
         </CardMedia>
         <CardTitle
-          title={`${title}, ${createDate[0]}`}
+          title={`${title}`}
           titleStyle={titleStyle}
           subtitle={artistName}
           subtitleStyle={subtitleStyle}

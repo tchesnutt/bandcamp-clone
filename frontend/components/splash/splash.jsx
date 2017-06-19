@@ -43,7 +43,6 @@ class Splash extends React.Component {
             id={album.id}
             title={album.title}
             coverUrl={album.cover_url}
-            createdAt={album.created_at}
             userId={album.user_id}
             artistName={album.artist_name}
             titleStyle={albumStyle.title}

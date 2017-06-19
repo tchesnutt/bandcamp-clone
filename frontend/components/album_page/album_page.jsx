@@ -16,7 +16,6 @@ const cardTrackStyle = {
 const albumCardStyle = {
   width: '400px',
   height: 'auto',
-  margin: '20px'
 };
 
 class AlbumPage extends React.Component {
@@ -110,7 +109,7 @@ class AlbumPage extends React.Component {
             <section className='album-art-album-page'>
               <h1 className='list-title'>Album</h1>
               <Album
-                containerStyle={cardStyle}
+                containerStyle={albumCardStyle}
                 id={displayAlbum[0][1].id}
                 userId={displayAlbum[0][1].user_id}
                 title={displayAlbum[0][1].title}
