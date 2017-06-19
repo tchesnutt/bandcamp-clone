@@ -6,28 +6,22 @@
   margin-bottom: 5px;
 }
 
-.track-element:hover svg {
-  fill: #0097a7 !important;
-}
-
 .track-number {
   margin-right: 3px;
 }
 
 .track-name:hover {
   text-decoration: underline;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .track-name-playing {
   font-weight: bold;
 }
 
-.track-list-title {
-  font-size: 20px;
-  font-style: oblique;
-  padding-top: 24px;
-  padding-left: 48px;
+.list-title {
+  margin-bottom: 12px;
+  font-size: 110%;
 }
 
 .track-list {
@@ -42,6 +36,7 @@
 }
 
 .track-list-flex ul {
+  margin-top: 12px;
   margin-bottom: 12px;
 }
 
@@ -50,7 +45,6 @@
 }
 
 .user-profile-picture {
-  margin: 10px;
 }
 
 .other-albums {
@@ -68,5 +62,9 @@
 }
 
 .album-cover {
+  margin-top: 10px;
+}
+
+.right-side-album-page {
   margin-top: 10px;
 }

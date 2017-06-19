@@ -5,6 +5,12 @@ import Album from '../album/album';
 
 const cardStyle = {
   width: '350px',
+  height: '468px'
+};
+
+const cardTrackStyle = {
+  width: '350px',
+  height: 'auto'
 };
 
 const albumCardStyle = {
@@ -78,13 +84,14 @@ class AlbumPage extends React.Component {
     if (this.props.viewedUser !== undefined) {
       let user_since = this.props.viewedUser.created_at.split("-");
       return (
-        <Card containerStyle={cardStyle} initiallyExpanded={true}>
-          <CardMedia className="user-profile-picture"><img src={this.props.viewedUser.profile_pic_url}/></CardMedia>
-          <CardTitle title={this.props.viewedUser.username} subtitle={`Since: ${user_since[0]}`}/>
-          <CardText>{this.props.viewedUser.description}</CardText>
-          <CardActions>
-          </CardActions>
-        </Card>
+        <section className='right-side-album-page'>
+          <h1 className='list-title'>Artist</h1>
+          <Card containerStyle={cardStyle} initiallyExpanded={true}>
+            <CardMedia className="user-profile-picture"><img src={this.props.viewedUser.profile_pic_url}/></CardMedia>
+            <CardTitle title={this.props.viewedUser.username} subtitle={`Since: ${user_since[0]}`}/>
+            <CardText>{this.props.viewedUser.description}</CardText>
+          </Card>
+        </section>
       )
     } else {
       return (
@@ -101,7 +108,9 @@ class AlbumPage extends React.Component {
         if(displayAlbum.length !== 0){
           return (
             <section className='album-art-album-page'>
+              <h1 className='list-title'>Album</h1>
               <Album
+                containerStyle={cardStyle}
                 id={displayAlbum[0][1].id}
                 userId={displayAlbum[0][1].user_id}
                 title={displayAlbum[0][1].title}
@@ -138,7 +147,7 @@ class AlbumPage extends React.Component {
       )
     } else {
       return (
-        <section/>
+        <h4>No other albums :(</h4>
       )
     }
   }
@@ -148,9 +157,9 @@ class AlbumPage extends React.Component {
     return(
         <section className='whole-album-page'>
           <section className='track-list'>
-            <Paper style={cardStyle} zDepth={1}>
+            <h1 className='list-title'>Tracks</h1>
+            <Paper style={cardTrackStyle} zDepth={1}>
               <section className='track-list-flex'>
-                <h3 className='track-list-title'>Tracks</h3>
                 <ul>
                   {this.displayTracks()}
                 </ul>
@@ -162,9 +171,6 @@ class AlbumPage extends React.Component {
           </section>
           <section className="artist-info-album-page">
             {this.displayArtist()}
-            <ul className='other-albums'>
-              {this.displayAlbums()}
-            </ul>
           </section>
       </section>
     )

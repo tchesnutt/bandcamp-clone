@@ -4,7 +4,7 @@ import { withRouter, hashHistory } from 'react-router';
 
 
 
-const Album = ({id, userId, title, coverUrl, createdAt}) => {
+const Album = ({id, userId, title, coverUrl, createdAt, containerStyle}) => {
   let createDate;
   createDate = createdAt.split('-');
 

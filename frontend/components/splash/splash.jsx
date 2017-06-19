@@ -42,6 +42,11 @@ class Splash extends React.Component {
           <img src='http://res.cloudinary.com/dxtvmwxxb/image/upload/v1497751480/splash_btkeyw.gif'/>
         </section>
         <section className='explore-music'>
+          <div className='explore-title'>
+            <h1>
+              Explore Albums
+            </h1>
+          </div>
           <section className='grid'>
             <Grid
               component="ul"

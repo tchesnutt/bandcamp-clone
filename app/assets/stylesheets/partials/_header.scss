@@ -16,10 +16,14 @@
 .right-nav-bar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 10px;
+  justify-content: flex-end;
 }
 
+.bottom-right-nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
 
 .logo-area {
   text-decoration-color: black;
@@ -27,11 +31,22 @@
   flex-direction: row;
   justify-content: center;
   cursor: pointer;
+  padding-left: 6px;
 }
 
 .logo-area > h1 {
   color: black;
   font-size: 30px;
+}
+
+.left-nav-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.left-nav-bar h4 {
+  color: $primaryColor;
 }
 
 .bottom-row-login-form {
