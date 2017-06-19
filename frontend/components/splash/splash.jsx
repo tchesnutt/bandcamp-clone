@@ -1,10 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
 import Album from '../album/album';
+import sizeMe from 'react-sizeme'
 
 const albumStyle = {
   card: {
-    width: '200px'
+    width: '200px',
+    height: '250px'
   },
   title: {
     fontSize: '16px',
@@ -14,23 +16,20 @@ const albumStyle = {
     fontSize: '12px',
     lineHeight: '130%'
   }
-}
-
-
+};
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
     this.settings = {
       accessibility: true,
       arrows: true,
       dots: false,
       infinite: true,
-      slidesToShow: 6,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 3000,
-      pauseOnHover: true
+      autoplaySpeed: 3000
     }
   }
 
@@ -61,7 +60,8 @@ class Splash extends React.Component {
 
 
   render() {
-    console.log(this.props);
+    const { width } = this.props.size;
+    let nSlides = Math.floor((width * .9) / 200)
     return (
       <section className='splash-page'>
         <section className='splash-image'>
@@ -74,7 +74,8 @@ class Splash extends React.Component {
             </h1>
           </div>
           <section className='grid'>
-            <Slider {...this.settings}>
+            <Slider {...this.settings}
+              slidesToShow={nSlides}>
               {this.handleAlbums()}
             </Slider>
           </section>
@@ -85,5 +86,13 @@ class Splash extends React.Component {
   }
 }
 
+const sizeMeConfig = {
+  monitorWidth: true,
+  monitorHeight: false,
+  monitorPosition: false,
+  refreshRate: 16,
+  refreshMode: 'throttle',
+  noPlaceholder: false
+}
 
-export default Splash;
+export default sizeMe(sizeMeConfig)(Splash);
