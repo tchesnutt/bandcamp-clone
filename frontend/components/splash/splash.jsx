@@ -1,24 +1,53 @@
 import React from 'react';
-import { CSSGrid, measureItems, makeResponsive, layout} from 'react-stonecutter';
+import Slider from 'react-slick';
 import Album from '../album/album';
+import sizeMe from 'react-sizeme'
+
+const albumStyle = {
+  card: {
+    width: '200px',
+    height: '250px'
+  },
+  title: {
+    fontSize: '16px',
+    lineHeight: '100%'
+  },
+  subtitle: {
+    fontSize: '12px',
+    lineHeight: '130%'
+  }
+};
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
+    this.settings = {
+      accessibility: true,
+      arrows: true,
+      dots: false,
+      infinite: true,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      draggable: true
+    };
   }
 
   handleAlbums() {
     if (this.props.albums.length > 0) {
       return(
         this.props.albums.map((album, idx) => (
-          <li key={idx}>
+          <div key={idx} className="album-carousel-element">
             <Album
+            containerStyle={albumStyle.card}
             id={album.id}
-            userId={album.user_id}
             title={album.title}
             coverUrl={album.cover_url}
-            createdAt={album.created_at}
-            userId={album.user_id}/></li>
+            userId={album.user_id}
+            artistName={album.artist_name}
+            titleStyle={albumStyle.title}
+            subtitleStyle={albumStyle.subtitle}/>
+          </div>
         ))
       );
     } else {
@@ -30,12 +59,8 @@ class Splash extends React.Component {
 
 
   render() {
-    const Grid = makeResponsive(measureItems(CSSGrid), {
-      maxWidth: 1920,
-      minPadding: 100,
-      measureImages: true
-    });
-    // <h1>Discover</h1>
+    const { width } = this.props.size;
+    let nSlides = Math.floor((width * .9) / 210)
     return (
       <section className='splash-page'>
         <section className='splash-image'>
@@ -48,24 +73,24 @@ class Splash extends React.Component {
             </h1>
           </div>
           <section className='grid'>
-            <Grid
-              component="ul"
-              columns={4}
-              columnWidth={400}
-              itemHeight={475}
-              gutterWidth={20}
-              gutterHeight={20}
-              duration={800}
-              easing="ease-out">
+            <Slider {...this.settings}
+              slidesToShow={nSlides}>
               {this.handleAlbums()}
-            </Grid>
+            </Slider>
           </section>
         </section>
       </section>
-
     )
   }
 }
 
+const sizeMeConfig = {
+  monitorWidth: true,
+  monitorHeight: false,
+  monitorPosition: false,
+  refreshRate: 16,
+  refreshMode: 'throttle',
+  noPlaceholder: false
+};
 
-export default Splash;
+export default sizeMe(sizeMeConfig)(Splash);

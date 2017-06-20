@@ -1,3 +1,12 @@
 .album-card:hover {
   cursor: pointer;
 }
+
+.album-title-card {
+  padding: 0;
+}
+
+.album-card {
+  display: flex;
+  justify-content: center;
+}
