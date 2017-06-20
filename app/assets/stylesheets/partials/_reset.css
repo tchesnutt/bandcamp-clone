@@ -22,6 +22,7 @@ time, mark, audio, video {
 
 body {
 	background-color: #eef2f3;
+	overflow-x: hidden;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,

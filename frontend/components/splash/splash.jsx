@@ -21,23 +21,23 @@ const albumStyle = {
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.settings = {
       accessibility: true,
       arrows: true,
       dots: false,
       infinite: true,
       slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 3000
-    }
+      autoplay: false,
+      autoplaySpeed: 3000,
+      draggable: true
+    };
   }
 
   handleAlbums() {
     if (this.props.albums.length > 0) {
       return(
         this.props.albums.map((album, idx) => (
-          <div key={idx}>
+          <div key={idx} className="album-carousel-element">
             <Album
             containerStyle={albumStyle.card}
             id={album.id}
@@ -60,7 +60,7 @@ class Splash extends React.Component {
 
   render() {
     const { width } = this.props.size;
-    let nSlides = Math.floor((width * .9) / 200)
+    let nSlides = Math.floor((width * .9) / 210)
     return (
       <section className='splash-page'>
         <section className='splash-image'>
@@ -80,7 +80,6 @@ class Splash extends React.Component {
           </section>
         </section>
       </section>
-
     )
   }
 }
@@ -92,6 +91,6 @@ const sizeMeConfig = {
   refreshRate: 16,
   refreshMode: 'throttle',
   noPlaceholder: false
-}
+};
 
 export default sizeMe(sizeMeConfig)(Splash);
