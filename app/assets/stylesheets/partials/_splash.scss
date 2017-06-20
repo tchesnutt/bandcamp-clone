@@ -26,6 +26,11 @@
   height: 400px;
 }
 
-.slick-slide{
-  // margin-right: 1px;
+
+.slick-next:before {
+  color: black !important;
+}
+
+.slick-prev:before {
+  color: black !important;
 }

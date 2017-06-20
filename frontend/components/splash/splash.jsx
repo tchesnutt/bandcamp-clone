@@ -27,7 +27,7 @@ class Splash extends React.Component {
       dots: false,
       infinite: true,
       slidesToScroll: 1,
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 3000,
       draggable: true
     };
