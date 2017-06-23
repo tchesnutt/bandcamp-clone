@@ -1,5 +1,5 @@
 import React from 'react';
-import { RaisedButton } from 'material-ui';
+import { FlatButton } from 'material-ui';
 import { hashHistory } from 'react-router';
 
 class EditUserButton extends React.Component {
@@ -14,9 +14,9 @@ class EditUserButton extends React.Component {
     if (this.loggedIn.id == pageId) {
       return (
         <section className="session">
-          <RaisedButton label="Edit User"
+          <FlatButton label="Edit User"
             onTouchTap={this.props.openEditUserModal}>
-          </RaisedButton>
+          </FlatButton>
         </section>
       );
     } else {

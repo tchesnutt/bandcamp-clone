@@ -65,11 +65,11 @@ class EditUserForm extends React.Component {
               <br/>
               <h1>Change Profile Picture</h1>
               <br/>
-              <UploadButton uploadImage={this.uploadImage}/>
+              <UploadButton uploadImage={this.uploadImage} style={submitButtonStyle} />
               <br/>
             </div>
             <br/>
-            <FlatButton label="Submit Edit" type='submit' style={submitButtonStyle} primary={true}/>
+            <RaisedButton label="Submit Edit" type='submit' style={submitButtonStyle} primary={true}/>
           </form>
         </Dialog>
       </section>

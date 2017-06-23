@@ -126,8 +126,8 @@ class AlbumForm extends React.Component {
                        onChange={this.trackUpdate('title')}
                        fullWidth={true}
                        errorText={this.props.errors.title === undefined ? "" : `title ${this.props.errors.title.join(", ")}`}/>
-            <UploadButton uploadImage={this.uploadSong}/>
-            <FlatButton label="Submit Track" type='submit' style={submitButtonStyle} primary={true}/>
+            <UploadButton uploadImage={this.uploadSong} style={submitButtonStyle}/>
+            <RaisedButton label="Submit Track" type='submit' style={submitButtonStyle} primary={true}/>
           </form>
           <form onSubmit={this.handleSubmit}>
             <TextField type='text'
@@ -159,7 +159,7 @@ class AlbumForm extends React.Component {
             </Card>
             <br/>
             <br/>
-            <FlatButton label="Submit Album" type='submit' style={submitButtonStyle} primary={true}/>
+            <RaisedButton label="Submit Album" type='submit' style={submitButtonStyle} primary={true}/>
           </form>
         </section>
         </Dialog>

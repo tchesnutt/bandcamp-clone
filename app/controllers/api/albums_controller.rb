@@ -26,10 +26,6 @@ class Api::AlbumsController < ApplicationController
       else
         render json: ["Artist has no albums"], status: 404
       end
-    elsif params[:search]
-      @albums = [handle_track_search(params),
-                handle_album_search(params),
-                handle_user_search(params)]
     else
       @albums = Album.all
       if @albums
@@ -38,43 +34,6 @@ class Api::AlbumsController < ApplicationController
         render json: ['No Albums Found, Panic'], status: 404
       end
     end
-  end
-
-  def handle_album_search(params)
-    search('album', params)
-  end
-
-  def handle_track_search(params)
-    search('track', params)
-  end
-
-  def handle_user_search(params)
-    search('user', params)
-  end
-
-  def search(type, query)
-    query_result = []
-    if query == ''
-      return query_result
-    else
-      if type == 'user'
-        query_result = User.where([
-          'title ILIKE :query',
-          {query: "%#{params[:search]}%"}
-          ]).limit(3)
-      elsif type == 'album'
-        query_result = Album.where([
-          'title ILIKE :query',
-          {query: "%#{params[:search]}%"}
-          ]).limit(3)
-      elsif type == 'track'
-        query_result = Track.where([
-          'title ILIKE :query',
-          {query: "%#{params[:search]}%"}
-          ]).limit(3)
-      end
-    end
-    query_result
   end
 
   def show

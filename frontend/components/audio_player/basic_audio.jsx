@@ -6,7 +6,7 @@ import ReactPlayer from 'react-player';
 class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+      this.state = {
       currentSong: this.props.currentSong,
       playing: this.props.playing,
       duration: null,
@@ -75,6 +75,7 @@ class AudioPlayer extends React.Component {
   }
 
   render() {
+    // console.log(this.props);
     if(this.state.currentSong !== undefined){
       return (
         <section className="audio-player" style={this.appear()}>
@@ -93,6 +94,7 @@ class AudioPlayer extends React.Component {
             </section>
           </section>
           <section className='bottom-part-audio-player'>
+            <img className='cover-audio-player' src={this.props.coverUrl}/>
             <h1 className="player-song-title">{this.props.currentSong.title}</h1>
             <span className="audio-buttons">
               {this.renderPlayPause()}

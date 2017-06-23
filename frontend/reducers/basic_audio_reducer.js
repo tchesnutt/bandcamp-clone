@@ -1,20 +1,19 @@
 import { merge } from 'lodash';
-import { RECEIVE_PLAYING, RECEIVE_SONG } from '../actions/tracks_actions';
+import { RECEIVE_SONG } from '../actions/tracks_actions';
 
-const _defaultPlayingState = {
-  playing: false,
+const _defaultTrack = {
+  title: "",
+  track_url: "",
+  cover_url: ""
 };
 
-export default (state = _defaultPlayingState, action) => {
-  Object.freeze(state);
+const AudioReducer = (state = _defaultTrack, action) => {
   switch(action.type){
-    case RECEIVE_PLAYING:
-      if (state.playing === true) {
-        return merge({}, state, {playing: false});
-      } else {
-        return merge({}, state, {playing: true});
-      };
+    case RECEIVE_SONG:
+      return merge({}, action.track);
     default:
       return state;
   }
 };
+
+export default AudioReducer;

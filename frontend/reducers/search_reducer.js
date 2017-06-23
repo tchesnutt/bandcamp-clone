@@ -9,6 +9,7 @@ const _nullResult = {
 
 const SearchReducer = ( state = _nullResult, action ) => {
   Object.freeze(state);
+  console.log(action);
   switch ( action.type ) {
   case RECIEVE_SEARCH_RESULTS:
     return merge( {}, { result: action.query_results } );
