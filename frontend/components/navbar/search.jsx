@@ -25,13 +25,11 @@ class Search extends React.Component {
       return(<div/>)
     } else {
       return(
-        <Paper className='search-dropdown'>
-          <ul>
+          <ul className='search-dropdown'>
             {this.handleArtists()}
             {this.handleAlbums()}
             {this.handleTracks()}
           </ul>
-        </Paper>
       );
     }
   }
@@ -44,8 +42,13 @@ class Search extends React.Component {
             return(
               <Link to={`/users/${artist.id}`} key={idx} onClick={this.clear}>
                 <li>
-                  <img src={artist.profile_pic_url}></img>
-                  <span>{artist.username}</span>
+                  <div className='dropdown-el-left'>
+                    <img src={artist.profile_pic_url}></img>
+                    <h4>{artist.username}</h4>
+                  </div>
+                  <div className='dropdown-el-right'>
+                    <h4>Artist</h4>
+                  </div>
                 </li>
               </Link>
             )
@@ -63,8 +66,13 @@ class Search extends React.Component {
             return(
               <Link to={`/users/${album.user_id}/albums/${album.id}`} key={idx + 3} onClick={this.clear}>
                 <li>
-                  <img src={album.cover_url}></img>
-                  <span>{album.title}</span>
+                  <div className='dropdown-el-left'>
+                    <img src={album.cover_url}></img>
+                    <h4>{album.title}</h4>
+                  </div>
+                  <div className='dropdown-el-right'>
+                    <h4>Album</h4>
+                  </div>
                 </li>
               </Link>
             )
@@ -72,12 +80,6 @@ class Search extends React.Component {
         </div>
       )
     }
-  }
-
-  clear() {
-    console.log('fire');
-    this.setState({query: ''});
-    this.props.sendQuery('');
   }
 
   handleTracks(){
@@ -89,8 +91,13 @@ class Search extends React.Component {
             return(
               <Link to={`/users/${album.user_id}/albums/${album.id}`} key={idx + 6} onClick={this.clear}>
                 <li>
-                  <img src={album.cover_url}></img>
-                  <span>{track.title} Track</span>
+                  <div className='dropdown-el-left'>
+                    <img src={album.cover_url}></img>
+                    <h4>{track.title}</h4>
+                  </div>
+                  <div className='dropdown-el-right'>
+                    <h4>Track</h4>
+                  </div>
                 </li>
               </Link>
             )
@@ -98,6 +105,11 @@ class Search extends React.Component {
         </div>
       )
     }
+  }
+
+  clear() {
+    this.setState({query: ''});
+    this.props.sendQuery('');
   }
 
   render() {
