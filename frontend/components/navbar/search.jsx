@@ -1,58 +1,113 @@
 import React from 'react';
-import { AutoComplete } from 'material-ui';
-import { hashHistory, Link } from 'react-router';
+import { Link } from 'react-router';
+import { TextField, Paper } from 'material-ui';
 
 
-//Currently only searches over albums.
 class Search extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      query: undefined,
-      results: this.props.searchResults,
-      dataSource: []
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { query: '' };
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.objectToArray = this.objectToArray.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
+    this.handleArtists = this.handleArtists.bind(this);
+    this.handleAlbums = this.handleAlbums.bind(this);
+    this.handleTracks = this.handleTracks.bind(this);
+    this.clear = this.clear.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    let nextData = this.objectToArray(nextProps.searchResults);
-    this.setState({dataSource: nextData, results: nextProps.searchResults});
+  handleUpdate(e) {
+    this.setState({ query: e.currentTarget.value });
+    this.props.sendQuery(e.currentTarget.value);
   }
 
-  objectToArray(obj) {
-    let data = Object.values(obj);
-    let result = [];
-    data.forEach((el) => {
-      result.push(el["title"]);
-    });
-    return result;
+  handleDropdown() {
+    if(this.state.query === ''){
+      return(<div/>)
+    } else {
+      return(
+        <Paper className='search-dropdown'>
+          <ul>
+            {this.handleArtists()}
+            {this.handleAlbums()}
+            {this.handleTracks()}
+          </ul>
+        </Paper>
+      );
+    }
   }
 
-  handleSubmit() {
-    this.setState({query: ""})
-    let id = Object.keys(this.state.results);
-    let selectedAlbum = this.state.results[id[0]];
-    hashHistory.push(`/users/${selectedAlbum.user_id}/albums/${selectedAlbum.id}`);
+  handleArtists(){
+    if( this.props.searchResults.artists.length > 0 ) {
+      return(
+        <div className='dropdown-artists'>
+          {this.props.searchResults.artists.map((artist, idx) => {
+            return(
+              <Link to={`/users/${artist.id}`} key={idx} onClick={this.clear}>
+                <li>
+                  <img src={artist.profile_pic_url}></img>
+                  <span>{artist.username}</span>
+                </li>
+              </Link>
+            )
+          })}
+        </div>
+      )
+    }
   }
 
-  handleUpdate(text) {
-    this.setState({query: text})
-    this.props.sendQuery(text);
+  handleAlbums(){
+    if( this.props.searchResults.albums.length > 0 ) {
+      return(
+        <div className='dropdown-albums'>
+          {this.props.searchResults.albums.map( (album, idx) => {
+            return(
+              <Link to={`/users/${album.user_id}/albums/${album.id}`} key={idx + 3} onClick={this.clear}>
+                <li>
+                  <img src={album.cover_url}></img>
+                  <span>{album.title}</span>
+                </li>
+              </Link>
+            )
+          })}
+        </div>
+      )
+    }
+  }
+
+  clear() {
+    console.log('fire');
+    this.setState({query: ''});
+    this.props.sendQuery('');
+  }
+
+  handleTracks(){
+    if( this.props.searchResults.tracks.length > 0 ) {
+      return(
+        <div className='dropdown-tracks'>
+          {this.props.searchResults.tracks.map( (track, idx) => {
+            let album = this.props.searchResults.album_art[idx];
+            return(
+              <Link to={`/users/${album.user_id}/albums/${album.id}`} key={idx + 6} onClick={this.clear}>
+                <li>
+                  <img src={album.cover_url}></img>
+                  <span>{track.title} Track</span>
+                </li>
+              </Link>
+            )
+          })}
+        </div>
+      )
+    }
   }
 
   render() {
     return (
       <section className='album-search-bah'>
-        <AutoComplete
-          hintText="Search Albums"
-          searchText={this.state.query}
-          filter={AutoComplete.caseInsensitiveFilter}
-          dataSource={this.state.dataSource}
-          onUpdateInput={this.handleUpdate}
-          onNewRequest={this.handleSubmit}/>
+        <TextField
+          hintText="Search"
+          onChange={this.handleUpdate}
+          value={this.state.query}/>
+        {this.handleDropdown()}
       </section>
     )
   }

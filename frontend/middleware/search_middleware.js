@@ -1,13 +1,19 @@
 import { FETCH_SEARCH_RESULTS,
-  recieveSearchResults } from '../actions/search_actions';
-import { searchQuery, allSearchQuery } from '../util/search_api_util';
+  recieveSearchResults,
+  resetSearchResults } from '../actions/search_actions';
+import { allSearchQuery } from '../util/search_api_util';
 
 
 const SearchMiddleware = ( { dispatch } ) => next => action => {
-  const recieveSearch = results => dispatch(recieveSearchResults(results))
+  const recieveSearch = results => dispatch(recieveSearchResults(results));
+  const resetSearch = () => dispatch(resetSearchResults());
   switch ( action.type ) {
   case FETCH_SEARCH_RESULTS:
-    allSearchQuery( action.query, recieveSearch);
+    if(action.query !== ''){
+      allSearchQuery( action.query, recieveSearch);
+    } else {
+      resetSearch();
+    }
     return next( action );
   default:
     return next( action );
