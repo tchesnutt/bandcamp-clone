@@ -1,7 +1,13 @@
+.user-sidebar {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 100px;
+}
+
 .user-discography {
   width: 80%;
-  padding: 10px;
-  margin: 5px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .user-page {
@@ -12,4 +18,8 @@
 .track-list-form {
   display: flex;
   justify-content: space-between;
+}
+
+.album-element {
+  width: 400px;
 }

@@ -10,25 +10,28 @@ class UserDetail extends React.Component {
   constructor(props) {
     super(props);
     this.user = {};
-    this.albums = [];
     this.user_since = "";
     let artistId;
     artistId = 1;
   }
 
   handleAlbums() {
-    if (this.albums.length > 0) {
+    if (Object.keys(this.props.albums).length > 0) {
       return(
-        this.albums.map((album, idx) => (
-          <li key={idx} className="album-element">
-            <Album
-            id={album.id}
-            userId={album.user_id}
-            title={album.title}
-            coverUrl={album.cover_url}
-            createdAt={album.created_at}
-            userId={album.user_id}/></li>
-        ))
+        Object.keys(this.props.albums).map( (key, idx) => {
+          let album = this.props.albums[key]
+          return(
+            <li key={idx} className="album-element">
+              <Album
+                id={album.id}
+                userId={album.user_id}
+                title={album.title}
+                coverUrl={album.cover_url}
+                createdAt={album.created_at}
+                userId={album.user_id}/></li>
+            )
+          }
+        )
       );
     } else {
       return(
@@ -52,6 +55,7 @@ class UserDetail extends React.Component {
     return (
       <section className="user-page" >
           <section className="user-sidebar">
+            <h1 className='list-title'>Artist</h1>
             <Card initiallyExpanded={true}>
               <CardMedia className="user-profile-picture"><img src={this.user.profile_pic_url}/></CardMedia>
               <CardTitle title={this.user.username} subtitle={`Since: ${this.user_since[0]}`}/>
@@ -61,13 +65,14 @@ class UserDetail extends React.Component {
             </Card>
           </section>
           <section className="user-discography">
+            <h1 className='list-title'>Discography</h1>
             <Grid
               component="ul"
-              columns={4}
+              columns={3}
               columnWidth={400}
               itemHeight={400}
-              gutterWidth={5}
-              gutterHeight={5}
+              gutterWidth={20}
+              gutterHeight={20}
               duration={800}
               easing="ease-out">
               {this.handleAlbums()}

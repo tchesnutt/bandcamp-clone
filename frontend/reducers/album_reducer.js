@@ -16,10 +16,10 @@ const _nullAlbums = {
 const AlbumReducer = ( state = _nullAlbums, action ) => {
   Object.freeze( state );
   switch ( action.type ) {
-  case RECEIVE_ALBUM:
-    return merge( {}, state, { [ action.album.id ]: action.album } );
   case RECEIVE_ALBUMS:
-    return merge( {}, state, { albums: action.albums } );
+    let purgeState = merge({}, state);
+    purgeState.albums = {};
+    return merge( {}, purgeState, { albums: action.albums } );
   case RECEIVE_ALL_ALBUMS:
     let newState = merge( {}, state, { albumSearch: action.albums } );
     newState.albumSearch = newState.albumSearch.slice(1);
