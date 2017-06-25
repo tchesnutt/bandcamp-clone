@@ -80,7 +80,6 @@ class AlbumPage extends React.Component {
   }
 
   displayArtist(){
-    console.log(this.props);
     if (this.props.viewedUser !== undefined) {
       let user_since = this.props.viewedUser.created_at.split("-");
       return (
