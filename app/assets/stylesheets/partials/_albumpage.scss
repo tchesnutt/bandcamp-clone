@@ -69,3 +69,11 @@
 .right-side-album-page {
   margin-top: 10px;
 }
+
+.right-side-album-page {
+  cursor: pointer;
+}
+
+.artist-title-album-page:hover {
+  text-decoration: underline;
+}

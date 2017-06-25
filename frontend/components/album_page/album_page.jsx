@@ -80,14 +80,15 @@ class AlbumPage extends React.Component {
   }
 
   displayArtist(){
+    console.log(this.props);
     if (this.props.viewedUser !== undefined) {
       let user_since = this.props.viewedUser.created_at.split("-");
       return (
         <section className='right-side-album-page'>
           <h1 className='list-title'>Artist</h1>
-          <Card containerStyle={cardStyle} initiallyExpanded={true}>
+          <Card containerStyle={cardStyle} initiallyExpanded={true} onClick={() => (this.handleGoto(`/users/${this.props.params.id}`))}>
             <CardMedia className="user-profile-picture"><img src={this.props.viewedUser.profile_pic_url}/></CardMedia>
-            <CardTitle title={this.props.viewedUser.username} subtitle={`Since: ${user_since[0]}`}/>
+            <CardTitle title={this.props.viewedUser.username} subtitle={`Since: ${user_since[0]}`} className='artist-title-album-page'/>
             <CardText>{this.props.viewedUser.description}</CardText>
           </Card>
         </section>
