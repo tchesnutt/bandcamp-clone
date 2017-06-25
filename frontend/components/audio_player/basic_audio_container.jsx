@@ -5,7 +5,6 @@ import AudioPlayer from './basic_audio';
 const mapStateToProps = state => ({
   currentSong: state.currentSong,
   playing: state.playing.playing,
-  coverUrl: state.albums.albums[state.currentSong.album_id]
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-// TODO: better trasition for player appearing
+// TODO: better transition for player appearing
 class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +27,7 @@ class AudioPlayer extends React.Component {
   }
 
   appear() {
-    if(this.state.currentSong.cover_url === ""){
+    if(this.state.currentSong.trackUrl === ""){
       return ( {opacity: 0} );
     } else {
       return ( {opacity: 1} );
@@ -74,12 +74,11 @@ class AudioPlayer extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let coverUrl;
-    if(this.props.coverUrl === undefined) {
+    if(this.props.currentSong === undefined) {
       coverUrl = '';
     } else {
-      coverUrl = this.props.coverUrl.cover_url
+      coverUrl = this.props.currentSong.coverUrl
     }
     if(this.state.currentSong !== undefined){
       return (
@@ -88,7 +87,7 @@ class AudioPlayer extends React.Component {
             ref={player => {
               this.player = player;
             }}
-            url={ this.state.currentSong.track_url }
+            url={ this.state.currentSong.trackUrl }
             playing={ this.state.playing }
             onProgress={ this.updatePlaybar }
             hidden={true}
