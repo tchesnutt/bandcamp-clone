@@ -98,12 +98,18 @@ class AudioPlayer extends React.Component {
             </section>
           </section>
           <section className='bottom-part-audio-player'>
-            <img className='cover-audio-player' src={coverUrl}/>
-            <h1 className="player-song-title">{this.props.currentSong.title}</h1>
-            <span className="audio-buttons">
-              {this.renderPlayPause()}
-            </span>
-            <h1 className="time">{this.handleTime()}</h1>
+            <div className='audio-left'>
+              <img className='cover-audio-player' src={coverUrl}/>
+              <h1 className="player-song-title">{this.props.currentSong.title}</h1>
+            </div>
+            <div className='audio-center'>
+              <span className="audio-buttons">
+                {this.renderPlayPause()}
+              </span>
+            </div>
+            <div className='audio-right'>
+              <h1 className="time">{this.handleTime()}</h1>
+            </div>
           </section>
         </section>
       );

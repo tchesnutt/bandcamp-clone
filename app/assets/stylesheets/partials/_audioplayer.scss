@@ -70,3 +70,17 @@
   height: 40px;
   margin-right: 5px;
 }
+
+.audio-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 340px;
+}
+
+.audio-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 340px;
+}
