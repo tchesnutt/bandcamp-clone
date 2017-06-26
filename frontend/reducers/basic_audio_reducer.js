@@ -3,6 +3,7 @@ import { RECEIVE_SONG } from '../actions/tracks_actions';
 import { RECEIVE_ALBUM_ART } from '../actions/album_actions';
 
 const _defaultTrack = {
+  id: "",
   title: "",
   trackUrl: "",
   coverUrl: ""
@@ -13,7 +14,8 @@ const AudioReducer = (state = _defaultTrack, action) => {
   switch(action.type){
     case RECEIVE_SONG:
       return merge({}, state, { trackUrl: action.track.track_url,
-                                title: action.track.title});
+                                title: action.track.title,
+                                id: action.track.id});
     case RECEIVE_ALBUM_ART:
       return merge({}, state, {coverUrl: action.albums.cover_url})
     default:

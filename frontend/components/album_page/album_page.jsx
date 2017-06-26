@@ -43,6 +43,7 @@ class AlbumPage extends React.Component {
   }
 
   playOrPause(trackId) {
+    console.log(this.props);
     if(trackId === this.props.currentSongId && this.props.playing){
       return('pause')
     } else {
