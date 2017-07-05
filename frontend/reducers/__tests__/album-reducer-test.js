@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 
 describe('Reducers', () => {
   describe('AlbumReducer', () => {
-    it('exports an function', () => {
+    it('exports a function', () => {
       expect(typeof AlbumReducer).toEqual('function');
     });
 
