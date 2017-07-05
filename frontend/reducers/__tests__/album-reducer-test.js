@@ -9,7 +9,7 @@ describe('Reducers', () => {
       expect(typeof AlbumReducer).toEqual('function');
     });
 
-    it('should initialize with an empty object as the default state', () => {
+    it('should initialize with an empty fields as the default state', () => {
       const nullState = {
         albums: {},
         addAlbum: {},
