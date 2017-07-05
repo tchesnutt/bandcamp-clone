@@ -149,7 +149,6 @@ describe('Reducers', () => {
     it('includes the ModalReducer under the key `modals`', () => {
       const action = { type: 'OPEN_AUTH_MODAL' };
       testStore.dispatch(action);
-
       expect(testStore.getState().modals).toEqual(ModalReducer(undefined, action));
     });
   });
