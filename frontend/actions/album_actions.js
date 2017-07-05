@@ -1,4 +1,3 @@
-export const FETCH_ALBUM = "FETCH_ALBUM";
 export const FETCH_ALBUMS = "FETCH_ALBUMS";
 export const FETCH_ALL_ALBUMS = "FETCH_ALL_ALBUMS";
 export const FETCH_ALBUM_ART = "FETCH_ALBUM_ART";
@@ -35,11 +34,6 @@ export const createAlbum = album => ( {
 
 export const updateAlbum = album => ( {
   type: UPDATE_ALBUM,
-  album
-} );
-
-export const receiveAlbum = album => ( {
-  type: RECEIVE_ALBUM,
   album
 } );
 

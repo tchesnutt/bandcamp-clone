@@ -1,5 +1,5 @@
-import AlbumReducer from '../reducers/album_reducer';
-import RootReducer from '../reducers/root_reducer';
+import AlbumReducer from '../album_reducer';
+import RootReducer from '../root_reducer';
 import { createStore } from 'redux';
 
 
@@ -10,7 +10,13 @@ describe('Reducers', () => {
     });
 
     it('should initialize with an empty object as the default state', () => {
-      expect(AlbumReducer(undefined, {})).toEqual({});
+      const nullState = {
+        albums: {},
+        addAlbum: {},
+        albumSearch: [],
+        errors: []
+      };
+      expect(AlbumReducer(undefined, {})).toEqual(nullState);
     });
 
     it('should return the previous state if an action is not matched', () => {
@@ -20,50 +26,36 @@ describe('Reducers', () => {
     });
 
     describe('handling the RECEIVE_ALBUMS action', () => {
-      let action,
-          testAlbums;
+      let actionOne, actionTwo, testAlbumsOne, testAlbumsTwo;
 
       beforeEach(() => {
-        testAlbums = { 1: 'testAlbum1', 2: 'testAlbum2' };
-        action = {
+        testAlbumsOne = { 1: 'testAlbum1', 2: 'testAlbum2' };
+        testAlbumsTwo = { 1: 'testAlbum1', 3: 'testAlbum3' };
+        actionOne = {
           type: 'RECEIVE_ALBUMS',
-          albums: testAlbums
+          albums: testAlbumsOne
+        };
+        actionTwo = {
+          type: 'RECEIVE_ALBUMS',
+          albums: testAlbumsTwo
         };
       });
 
       it('should replace the state with the action\'s albums', () => {
-        const state = AlbumReducer(undefined, action);
-        expect(state).toEqual(testAlbums);
+        const state = AlbumReducer(undefined, actionOne);
+        expect(state.albums).toEqual(testAlbumsOne);
       });
+
+      it('should replace previous iterations of other RECEIVE_ALBUMS case', () => {
+        let state = AlbumReducer(undefined, actionOne);
+        let nextState = AlbumReducer(state, actionTwo);
+        expect(nextState.albums).toEqual(testAlbumsTwo);
+      })
 
       it('should not modify the old state', () => {
         let oldState = { 1: 'oldState' };
-        AlbumReducer(oldState, action);
+        AlbumReducer(oldState, actionOne);
         expect(oldState).toEqual({ 1: 'oldState' });
-      });
-    });
-
-    describe('handling the RECEIVE_ALBUM action', () => {
-      let action,
-          testAlbum;
-
-      beforeEach(() => {
-        testAlbum = { id: 1, title: 'testAlbum' };
-        action = {
-          type: 'RECEIVE_ALBUM',
-          album: testAlbum
-        };
-      });
-
-      it('should add the album to the state using the album id as a key', () => {
-        let state = AlbumReducer(undefined, action);
-        expect(state[1]).toEqual(testAlbum);
-      });
-
-      it('should not affect the other albums in the state', () => {
-        let oldState = { 2: 'oldState' };
-        let state = AlbumReducer(oldState, action);
-        expect(state[2]).toEqual('oldState');
       });
     });
   });
@@ -81,11 +73,10 @@ describe('Reducers', () => {
 
     it('includes the AlbumReducer under the key `albums`', () => {
       const album = { id: 1, title: 'Root Reducer', content: 'Testing' };
-      const action = { type: 'RECEIVE_ALBUM', album };
+      const action = { type: 'RECEIVE_ALBUMS', album };
       testStore.dispatch(action);
 
-      expect(testStore.getState().albums).toEqual(AlbumReducer({ [album.id]: album }, action));
+      expect(testStore.getState().albums).toEqual(AlbumReducer(undefined, action));
     });
   });
 });
-Contact GitHub
