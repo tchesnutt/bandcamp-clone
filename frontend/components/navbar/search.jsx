@@ -115,10 +115,13 @@ class Search extends React.Component {
   render() {
     return (
       <section className='album-search-bah'>
-        <TextField
-          hintText="Search"
-          onChange={this.handleUpdate}
-          value={this.state.query}/>
+        <form>
+          <TextField
+            hintText="Search"
+            onChange={this.handleUpdate}
+            value={this.state.query}
+            onBlur={this.clear}/>
+        </form>
         {this.handleDropdown()}
       </section>
     )
