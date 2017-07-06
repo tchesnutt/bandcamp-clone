@@ -9,6 +9,7 @@ class Search extends React.Component {
     this.state = { query: '' };
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
+    this.noResults = this.noResults.bind(this);
     this.handleArtists = this.handleArtists.bind(this);
     this.handleAlbums = this.handleAlbums.bind(this);
     this.handleTracks = this.handleTracks.bind(this);
@@ -21,8 +22,17 @@ class Search extends React.Component {
   }
 
   handleDropdown() {
+    console.log(this.noResults());
     if(this.state.query === ''){
       return(<div/>)
+    } else if (this.state.query !== '' && this.noResults() === true) {
+      return (
+        <ul className='search-dropdown'>
+          <li style={{marginLeft: '5px', marginTop: '15px', fontSize: '150%', cursor: 'default'}} >
+            No Results
+          </li>
+        </ul>
+      )
     } else {
       return(
           <ul className='search-dropdown'>
@@ -32,6 +42,15 @@ class Search extends React.Component {
           </ul>
       );
     }
+  }
+
+  noResults() {
+    if(this.props.searchResults.tracks.length === 0 &&
+      this.props.searchResults.albums.length === 0 &&
+      this.props.searchResults.artists.length === 0) {
+        return true
+    }
+    return false
   }
 
   handleArtists(){
