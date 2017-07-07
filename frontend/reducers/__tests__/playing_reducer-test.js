@@ -41,12 +41,25 @@ describe('Reducers', () => {
         expect(nextState.playing).toBeFalsy();
       });
 
-      it('should not modigy the old state', () => {
+      it('should not modify the old state', () => {
         const oldState = { 1: 'state so old' };
         PlayingReducer(oldState, action);
         expect(oldState).toEqual({ 1: 'state so old'});
       });
+    });
+  });
 
-    })
-  })
+  describe('RootReducer', () => {
+    let testStore;
+
+    beforeAll(() => {
+      testStore = createStore(RootReducer);
+    });
+
+    it('includes the PlayingReducer under the key `playing`', () => {
+      const action = { type: 'RECEIVE_PLAY' };
+      testStore.dispatch(action);
+      expect(testStore.getState().playing).toEqual(PlayingReducer(undefined, action));
+    });
+  });
 })
