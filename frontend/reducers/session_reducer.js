@@ -5,10 +5,10 @@ import {
 } from '../actions/session_actions';
 import { merge } from 'lodash';
 
-const _nullUser = Object.freeze( {
+const _nullUser = {
   currentUser: null,
-  errors: []
-} );
+  errors: {}
+};
 
 const SessionReducer = ( state = _nullUser, action ) => {
   Object.freeze( state )
