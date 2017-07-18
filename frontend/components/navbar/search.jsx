@@ -22,7 +22,6 @@ class Search extends React.Component {
   }
 
   handleDropdown() {
-    console.log(this.noResults());
     if(this.state.query === ''){
       return(<div/>)
     } else if (this.state.query !== '' && this.noResults() === true) {

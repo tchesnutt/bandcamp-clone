@@ -2,14 +2,12 @@ import {
   receiveTrack,
   receiveTracks,
   receiveTrackErrors,
-  FETCH_TRACK,
   FETCH_TRACKS,
   CREATE_TRACK,
   UPDATE_TRACK
 } from '../actions/tracks_actions';
 import {
   fetchTracks,
-  fetchTrack,
   createTrack,
   updateTrack
 } from '../util/track_api_util';
@@ -20,9 +18,6 @@ const TrackMiddleware = ( { dispatch } ) => next => action => {
   const successTracks = tracks => dispatch( receiveTracks( tracks ) );
   const trackErrors = errors => dispatch( receiveTrackErrors( errors.responseText ) );
   switch ( action.type ) {
-  case FETCH_TRACK:
-    fetchTracks( action.trackId, successTrack, trackErrors );
-    return next( action );
   case FETCH_TRACKS:
     fetchTracks( action.albumId, successTracks, trackErrors );
     return next( action );
