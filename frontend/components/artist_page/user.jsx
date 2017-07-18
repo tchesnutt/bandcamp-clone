@@ -51,7 +51,8 @@ class UserDetail extends React.Component {
       minPadding: 100,
       measureImages: true
     });
-
+    console.log(this.props);
+    console.log(this.user);
     return (
       <section className="user-page" >
           <section className="user-sidebar">
