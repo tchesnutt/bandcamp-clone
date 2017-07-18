@@ -51,8 +51,6 @@ class UserDetail extends React.Component {
       minPadding: 100,
       measureImages: true
     });
-    console.log(this.props);
-    console.log(this.user);
     return (
       <section className="user-page" >
           <section className="user-sidebar">
@@ -61,8 +59,8 @@ class UserDetail extends React.Component {
               <CardMedia className="user-profile-picture"><img src={this.user.profile_pic_url}/></CardMedia>
               <CardTitle title={this.user.username} subtitle={`Since: ${this.user_since[0]}`}/>
               <CardText>{this.user.description}</CardText>
-              <EditUserButtonContainer />
-              <EditUserFormContainer />
+              <EditUserButtonContainer/>
+              <EditUserFormContainer/>
             </Card>
           </section>
           <section className="user-discography">
