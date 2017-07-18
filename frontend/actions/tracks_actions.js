@@ -2,7 +2,6 @@ export const FETCH_TRACKS = "FETCH_TRACKS";
 export const FETCH_TRACK = "FETCH_TRACK";
 export const CREATE_TRACK = "CREATE_TRACK";
 export const UPDATE_TRACK = "UPDATE_TRACK";
-export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
 export const RECEIVE_PLAYING = "RECEIVE_PLAYING";
@@ -35,11 +34,6 @@ export const createTrack = track => ( {
 
 export const updateTrack = track => ( {
   type: UPDATE_TRACK,
-  track
-} );
-
-export const receiveTrack = track => ( {
-  type: RECEIVE_TRACK,
   track
 } );
 

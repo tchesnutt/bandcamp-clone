@@ -1,5 +1,4 @@
 import {
-  RECEIVE_TRACK,
   RECEIVE_TRACKS,
   RECEIVE_TRACK_ERRORS
 } from '../actions/tracks_actions';
@@ -15,8 +14,6 @@ const _nullTrack = {
 const TracksReducer = ( state = _nullTrack, action ) => {
   Object.freeze( state );
   switch ( action.type ) {
-  case RECEIVE_TRACK:
-    return merge( {}, { tracks: action.track } );
   case RECEIVE_TRACKS:
     return merge( {}, { tracks: action.tracks } );
   case RECEIVE_TRACK_ERRORS:
