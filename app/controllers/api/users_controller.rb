@@ -13,10 +13,6 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def index
-    # TODO: pull search query out of params, us active record to find all users.
-  end
-
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)

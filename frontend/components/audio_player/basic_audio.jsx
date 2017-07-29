@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 
-// TODO: better transition for player appearing
+
 class AudioPlayer extends React.Component {
   constructor(props) {
     super(props);

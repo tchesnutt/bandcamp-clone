@@ -3,7 +3,6 @@ import {
   RECEIVE_ERRORS
 } from '../actions/user_actions';
 import { merge } from 'lodash';
-// TODO: make two seperate nodes in tree for user and users
 
 const _nullUsers = {
   errors: []
