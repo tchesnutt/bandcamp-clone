@@ -41,6 +41,8 @@
     "react-stonecutter": "^0.3.5",
     "react-tap-event-plugin": "^2.0.0",
     "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sinon": "^2.4.1",
     "slick-carousel": "^1.6.0",
     "webpack": "^1.15.0"
   },

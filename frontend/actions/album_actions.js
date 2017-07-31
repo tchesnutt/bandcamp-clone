@@ -1,3 +1,4 @@
+export const FETCH_ALBUM = "FETCH_ALBUM";
 export const FETCH_ALBUMS = "FETCH_ALBUMS";
 export const FETCH_ALL_ALBUMS = "FETCH_ALL_ALBUMS";
 export const FETCH_ALBUM_ART = "FETCH_ALBUM_ART";
@@ -24,7 +25,7 @@ export const fetchAllAlbums = () => ( {
 } );
 
 export const fetchAlbumArt = () => ( {
-  type: FETCH_ALL_ALBUMS
+  type: FETCH_ALBUM_ART
 } );
 
 export const createAlbum = album => ( {
