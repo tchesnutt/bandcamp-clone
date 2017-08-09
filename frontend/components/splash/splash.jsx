@@ -64,7 +64,7 @@ class Splash extends React.Component {
     return (
       <section className='splash-page'>
         <section className='splash-image'>
-          <img src='http://res.cloudinary.com/dxtvmwxxb/image/upload/v1497751480/splash_btkeyw.gif'/>
+          <img src='http://res.cloudinary.com/dxtvmwxxb/image/upload/v1502241236/giphy_mexkt6.gif'/>
         </section>
         <section className='explore-music'>
           <div className='explore-title'>
