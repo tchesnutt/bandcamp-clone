@@ -13,11 +13,12 @@
  *= require_tree .
  *= require_self
  */
- @import 'partials/base';
- @import 'partials/reset';
- @import 'partials/sidbar';
- @import 'partials/userpagediscography';
- @import 'partials/audioplayer';
- @import 'partials/albumpage';
- @import 'partials/splash';
- @import 'partials/album';
+@import 'partials/base';
+@import 'partials/reset';
+@import 'partials/sidbar';
+@import 'partials/userpagediscography';
+@import 'partials/audioplayer';
+@import 'partials/albumpage';
+@import 'partials/splash';
+@import 'partials/album';
+@import 'partials/media';

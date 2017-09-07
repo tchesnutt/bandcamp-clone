@@ -1,0 +1,32 @@
+@media (max-width: 767px) {
+  .whole-album-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .track-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .album-art-album-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .artist-info-album-page{
+    width: 100%;
+  }
+  
+  .right-side-album-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}

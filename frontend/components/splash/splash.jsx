@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import Album from '../album/album';
-import sizeMe from 'react-sizeme'
+import sizeMe from 'react-sizeme';
 
 const albumStyle = {
   card: {
