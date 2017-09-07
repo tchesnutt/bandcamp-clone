@@ -1,4 +1,4 @@
-@media (max-width: 767px) {
+@media (max-width: 1149px) {
   .whole-album-page {
     display: flex;
     justify-content: center;
@@ -21,8 +21,9 @@
 
   .artist-info-album-page{
     width: 100%;
+    margin: 0px;
   }
-  
+
   .right-side-album-page {
     display: flex;
     justify-content: center;

@@ -5,7 +5,7 @@ import Album from '../album/album';
 
 const cardStyle = {
   width: '350px',
-  height: '468px'
+  height: '418px'
 };
 
 const cardTrackStyle = {
@@ -14,7 +14,7 @@ const cardTrackStyle = {
 };
 
 const albumCardStyle = {
-  width: '400px',
+  width: '350px',
   height: 'auto',
 };
 
