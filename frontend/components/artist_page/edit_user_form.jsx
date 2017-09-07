@@ -12,15 +12,23 @@ class EditUserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profile_pic_url: props.currentUser.profile_pic_url,
-      description: props.currentUser.description,
-      username: props.currentUser.username,
-      id: props.currentUser.id
+      profile_pic_url: '',
+      description: '',
+      username: '',
+      id: 0
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
   }
 
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      profile_pic_url: nextProps.currentUser.profile_pic_url,
+      description: nextProps.currentUser.description,
+      username: nextProps.currentUser.username,
+      id: nextProps.currentUser.id
+    })
+  }
 
   update(field) {
     return e=> this.setState({[field]: e.currentTarget.value});
