@@ -7,7 +7,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-const sandcampTheme = {
+const soundcampTheme = {
  fontFamily: 'Titillium Web'
 }
 
@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='whole-page'>
-        <MuiThemeProvider muiTheme={getMuiTheme(sandcampTheme)}>
+        <MuiThemeProvider muiTheme={getMuiTheme(soundcampTheme)}>
           <div className='inner-container'>
             <section className='the-top'>
               <section>

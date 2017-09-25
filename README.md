@@ -1,9 +1,9 @@
-[landing]: docs/sandcamp.gif "Landing"
+[landing]: docs/soundcamp.gif "Landing"
 
 # Sandcamp #
 ___
 
-[Live](https://sandcamp.herokuapp.com/)
+[Live](https://soundcamp.herokuapp.com/)
 
 ![alt-text][landing]
 

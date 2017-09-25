@@ -1,7 +1,7 @@
 {
   "name": "BandcampClone",
   "version": "1.0.0",
-  "description": "[Sandcamp][heroku] [heroku]: https://sandcamp.herokuapp.com/ [Tello Link][trello] [trello]: https://trello.com/b/y7jMGdNE/sandcamp This project will be a faithful clone of Bandcamp built using Rails and React/Redux.",
+  "description": "[Sandcamp][heroku] [heroku]: https://soundcamp.herokuapp.com/ [Tello Link][trello] [trello]: https://trello.com/b/y7jMGdNE/soundcamp This project will be a faithful clone of Bandcamp built using Rails and React/Redux.",
   "main": "index.js",
   "directories": {
     "doc": "docs",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tchesnutt/sandcamp.git"
+    "url": "git+https://github.com/tchesnutt/soundcamp.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tchesnutt/sandcamp/issues"
+    "url": "https://github.com/tchesnutt/soundcamp/issues"
   },
-  "homepage": "https://github.com/tchesnutt/sandcamp#readme",
+  "homepage": "https://github.com/tchesnutt/soundcamp#readme",
   "dependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^6.4.1",

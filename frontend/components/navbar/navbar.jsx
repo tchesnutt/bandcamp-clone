@@ -66,7 +66,7 @@ class NavBar extends React.Component {
               <section className='left-nav-bar'>
                 <section className="logo-area">
                   <div className="logo" onClick={() => this.handleClick("/")}/>
-                  <h1 onClick={() => this.handleClick("/")}>S A N D C A M P</h1>
+                  <h1 onClick={() => this.handleClick("/")}>S O U N D C A M P</h1>
                 </section>
                 <section className='tag-line'>
                   <h4>Discover. Listen. Jam.</h4>
