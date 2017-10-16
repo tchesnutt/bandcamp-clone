@@ -1,4 +1,5 @@
 [landing]: docs/soundcamp.gif "Landing"
+[search]: docs/search.png "search"
 
 # Sandcamp #
 ___
@@ -31,6 +32,9 @@ Initially I implemented search in a super hacky way: by filtering over an array 
     render 'api/search/index'
   end
 ```
+
+![alt-text][search]
+
 
 An example of the actual active record call:
 
